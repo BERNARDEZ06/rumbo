@@ -3,37 +3,38 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: planificación.** Documentos creados y horario leído. Horario completo. Solo falta el visto bueno del usuario al plan de la Fase 1.
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tarea 0 terminada; siguiente: tarea 1 (diseño base y navegación).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
 - ✅ Documentos del proyecto: CLAUDE.md, VISION, FUNCIONALIDADES, ARQUITECTURA, DECISIONES y PROGRESO.
 - ✅ Horario de clase transcrito en `docs/HORARIO.md` (a partir del PDF de Comillas).
-- ✅ Plan ajustado: sección Calendario (mes + semana) y asistencia a clase en la Fase 1.
+- ✅ Plan ajustado: sección Calendario (mes + semana), asistencia a clase, botón "+" y cuenta atrás de exámenes.
+- ✅ Tarea 0: Node.js 24 instalado; proyecto base con Vite 8, React 19, TypeScript 7, Tailwind 4 y Vitest 5. Compila, pasa las pruebas y se abre en el navegador.
 
 ## En curso
-- 🔄 Nada. Esperando el visto bueno.
+- 🔄 Nada.
 
 ## Plan de la Fase 1 (tareas pequeñas, una por commit)
 | # | Tarea | Estado |
 |---|---|---|
-| 0 | Instalar Node.js en el ordenador y crear el proyecto base (Vite, React, TypeScript, Tailwind y pruebas) | ⬜ |
-| 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) | ⬜ |
+| 0 | Instalar Node.js en el ordenador y crear el proyecto base (Vite, React, TypeScript, Tailwind y pruebas) | ✅ |
+| 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) y botón "+" | ⬜ |
 | 2 | Base de datos en el dispositivo y lógica de fechas y semanas (con pruebas) | ⬜ |
 | 3 | Hábitos: crear, editar, marcar, rachas y progreso semanal (con pruebas) | ⬜ |
 | 4 | Asignaturas, horario semanal, clases puntuales, festivos + carga de tus datos reales | ⬜ |
 | 5 | Tareas: exámenes, entregas y repasos, con fechas y filtros | ⬜ |
-| 6 | Calendario: vista mes y vista semana + eventos puntuales + marcar asistencia a clase | ⬜ |
-| 7 | Hoy: pantalla de inicio con todo lo del día (incluida la asistencia) | ⬜ |
+| 6 | Calendario: vista mes y vista semana + eventos puntuales + asistencia a clase | ⬜ |
+| 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ⬜ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ⬜ |
 | 9 | App instalable (PWA) y publicación en GitHub Pages | ⬜ |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
-- ✅ Business English: grupo B2 de Kevin McCourt. Comunicación Persuasiva: grupo 1.
-- ✅ Prácticas de Estadística: G1. Comunicación Persuasiva: de 12:00 a 13:30.
-- Dar el visto bueno al plan.
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 
-## Notas para la próxima sesión
-- En el ordenador no hay Node.js instalado (sí hay git). Se instalará en la tarea 0 con `winget`.
+## Notas técnicas para la próxima sesión
+- Node.js está en `C:\Program Files\nodejs`. En PowerShell puede hacer falta añadirlo al PATH de la sesión: `$env:Path = "C:\Program Files\nodejs;" + $env:Path`.
+- Comandos: `npm run dev` (abrir en local), `npm run comprobar` (tipos + pruebas), `npm run build` (versión final).
+- Vista previa en el navegador integrado: configuración `rumbo` en `.claude/launch.json` (puerto 5173).
+- Versiones muy recientes (TypeScript 7, Vite 8, react-router 8): comprobar la documentación si algo no encaja.
