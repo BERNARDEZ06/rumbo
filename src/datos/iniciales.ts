@@ -64,6 +64,7 @@ const SEMANAL: [number, string, string, Clave, string][] = [
 const COMUNICACION = ['2026-09-11', '2026-09-18', '2026-09-25', '2026-10-02', '2026-10-09', '2026-10-16', '2026-10-23', '2026-10-30', '2026-11-06', '2026-11-13']
 
 // Prácticas de Estadística del grupo 1 y de "todos": lunes 12:30-14:15 o miércoles 15:00-16:45.
+// (El grupo solo se apunta aquí como referencia; en la app se muestra simplemente "Práctica".)
 const PRACTICAS: [string, 'G1' | 'Todos'][] = [
   ['2026-09-28', 'G1'],
   ['2026-10-07', 'G1'],
@@ -100,7 +101,7 @@ async function cargarHorario(base: BaseDeDatos) {
     await guardar('clasesPuntuales', { asignaturaId: ids.comunicacion, fecha, inicio: '12:00', fin: '13:30', aula: 'O-206', detalle: 'Grupo 1' }, base)
   }
 
-  for (const [fecha, grupo] of PRACTICAS) {
+  for (const [fecha] of PRACTICAS) {
     const esLunes = diaDeLaSemana(fecha) === 1
     await guardar(
       'clasesPuntuales',
@@ -110,7 +111,7 @@ async function cargarHorario(base: BaseDeDatos) {
         inicio: esLunes ? '12:30' : '15:00',
         fin: esLunes ? '14:15' : '16:45',
         aula: esLunes ? 'O-310' : 'O-201C',
-        detalle: `Práctica ${grupo}`,
+        detalle: 'Práctica',
       },
       base,
     )

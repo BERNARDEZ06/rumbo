@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 6 terminadas; siguiente: tarea 7 (pantalla Hoy).
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 7 terminadas; siguiente: tarea 8 (Ajustes: copia de seguridad y almacenamiento persistente).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -19,6 +19,8 @@ _Última actualización: 2026-09-28_
 - ✅ Fin de clases confirmado: 8 dic 2026 (festivo; último día de clase el lunes 7). No hay más festivos.
 - ✅ Tarea 5: tareas (examen, entrega, repaso, otra) con asignatura, fecha, hora y notas; título automático ("Examen de Macro") si se deja vacío; lista agrupada (Atrasadas, Hoy, Próximos 7 días, Más adelante, Sin fecha), pendientes/hechas y filtro por asignatura; se abren desde el botón "+". Cargados los 9 exámenes y la entrega del usuario.
 - ✅ Tarea 6: Calendario con vista mes (exámenes en rojo, entregas en verde, festivos en violeta; en ordenador, etiquetas con la asignatura) y vista semana (lunes a domingo con clases, tareas y eventos); detalle del día; eventos puntuales (también desde el "+"); asistencia en cada clase ("Fui" por defecto al terminar, "No fui" / "No iré" con un toque) y resumen de asistencia por asignatura (en rojo si baja del 80 %). Corregido un desbordamiento horizontal en móvil con nombres de clase largos.
+- ✅ Las prácticas de Estadística se muestran como "Práctica" (sin grupo), a petición del usuario.
+- ✅ Tarea 7: pantalla Hoy con saludo y fecha, cuenta atrás de los 3 próximos exámenes (en rojo si faltan 3 días o menos), tareas para hoy (incluidas las atrasadas; las hechas quedan tachadas con contador "x/y hechas"), clases con asistencia ("x por delante"), festivo o "hoy no tienes clase", eventos del día y hábitos en versión compacta con su progreso semanal.
 
 ## En curso
 - 🔄 Nada.
@@ -33,7 +35,7 @@ _Última actualización: 2026-09-28_
 | 4 | Asignaturas, horario semanal, clases puntuales, festivos + carga de tus datos reales | ✅ |
 | 5 | Tareas: exámenes, entregas y repasos, con fechas y filtros | ✅ |
 | 6 | Calendario: vista mes y vista semana + eventos puntuales + asistencia a clase | ✅ |
-| 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ⬜ |
+| 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ✅ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ⬜ |
 | 9 | App instalable (PWA) y publicación en GitHub Pages | ⬜ |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |

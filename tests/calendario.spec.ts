@@ -49,7 +49,7 @@ test('la vista semana muestra de lunes a domingo y se puede avanzar', async ({ p
   await expect(page.getByRole('region', { name: 'viernes, 9 de octubre' }).getByText(/Comunicación/)).toBeVisible()
   await page.getByRole('button', { name: 'Semana siguiente' }).click()
   await expect(page.getByRole('heading', { name: '12 oct – 18 oct' })).toBeVisible()
-  await expect(page.getByRole('region', { name: 'miércoles, 14 de octubre' }).getByText(/Práctica Todos/)).toBeVisible()
+  await expect(page.getByRole('region', { name: 'miércoles, 14 de octubre' }).getByText(/Práctica/)).toBeVisible()
   await page.getByRole('button', { name: 'Hoy', exact: true }).click()
   await expect(page.getByRole('heading', { name: '5 oct – 11 oct' })).toBeVisible()
 })

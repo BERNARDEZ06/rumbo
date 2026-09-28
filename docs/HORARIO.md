@@ -24,7 +24,7 @@ Se usará para cargar los datos iniciales en las tareas 4 y 5 de la Fase 1.
 ## Clases en fechas concretas
 **Comunicación Persuasiva, grupo 1** (Poveda García-Noblejas, Fernando · ICADE-O-206), algunos viernes de 12:00 a 13:30: 11, 18 y 25 sep; 2, 9, 16, 23 y 30 oct; 6 y 13 nov.
 
-**Prácticas de Estadística** (lunes a las 12:30 o miércoles a las 15:00). El usuario es del **G1**, así que se cargan solo las de G1 y Todos:
+**Prácticas de Estadística** (lunes a las 12:30 o miércoles a las 15:00). El usuario es del **G1**, así que se cargan solo las de G1 y Todos. En la app se muestran como "Práctica", sin grupo:
 | Fecha | Hora | Grupo |
 |---|---|---|
 | Lun 28 sep | 12:30 | G1 |

@@ -33,7 +33,7 @@ test('el tema oscuro se aplica y se recuerda al recargar', async ({ page }) => {
 })
 
 test('no hay desplazamiento horizontal', async ({ page }) => {
-  // Con el reloj en un día con clases largas ("Estadística · Práctica G1"), para cubrir el peor caso.
+  // Con el reloj en un día con clases largas ("Estadística · Práctica"), para cubrir el peor caso.
   await page.clock.setFixedTime(new Date('2026-10-07T12:00:00+02:00'))
   for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/tareas', '/#/calendario', '/#/ajustes/clases']) {
     await page.goto(ruta)

@@ -39,3 +39,5 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 33 | 2026-09-29 | **Asistencia por debajo del 80 % en rojo** | Umbral habitual de asistencia mínima en la universidad; sirve de aviso. Ajustable más adelante si hace falta. |
 | 34 | 2026-09-29 | **Pruebas en navegador con reloj fijo** (lunes 5 oct 2026, 17:30) | Así las pruebas del calendario y la asistencia dan siempre el mismo resultado, sea el día que sea. |
 | 35 | 2026-09-29 | **Listas con `grid-cols-1`** | Evita que un texto largo ensanche la pantalla en el móvil (en iPhone haría que la página se viera "alejada"). |
+| 36 | 2026-09-29 | **Orden de Hoy: exámenes → tareas → clases → eventos → hábitos** | Lo que más urge arriba; las clases tienen hora fija y los hábitos son lo más flexible. |
+| 37 | 2026-09-29 | **Las tareas de hoy hechas siguen visibles (tachadas)** | Ver "1/2 hechas" motiva más que ver cómo desaparecen. Las atrasadas solo salen si siguen pendientes. |

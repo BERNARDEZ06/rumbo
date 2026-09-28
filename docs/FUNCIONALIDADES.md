@@ -45,9 +45,9 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Añadir cosas puntuales a un día concreto (ej. "cita médico jueves 10:00").
 
 ### Hoy
-- ⬜ La app se abre aquí: fecha, clases de hoy, hábitos pendientes de hoy, tareas de hoy y vencidas, y próximos exámenes.
-- ⬜ Marcar hábitos, tareas y asistencia a clase directamente desde esta pantalla.
-- ⬜ Cuenta atrás de los próximos exámenes (ej. "Macro en 7 días").
+- ✅ La app se abre aquí: fecha, clases de hoy, hábitos pendientes de hoy, tareas de hoy y vencidas, y próximos exámenes.
+- ✅ Marcar hábitos, tareas y asistencia a clase directamente desde esta pantalla.
+- ✅ Cuenta atrás de los próximos exámenes (ej. "Macro en 7 días").
 
 ### Datos
 - ⬜ Todo se guarda en el dispositivo.

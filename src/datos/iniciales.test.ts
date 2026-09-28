@@ -38,7 +38,7 @@ describe('datos iniciales del usuario', () => {
   it('el lunes 28 de septiembre tiene práctica por la mañana y 3 clases por la tarde', async () => {
     await cargarDatosIniciales(base)
     expect(resumen(clasesDelDia('2026-09-28', await datos()))).toEqual([
-      '12:30 Estadística (Práctica G1)',
+      '12:30 Estadística (Práctica)',
       '15:00 Macro',
       '17:00 Bases de Datos',
       '19:00 English',
@@ -48,7 +48,7 @@ describe('datos iniciales del usuario', () => {
   it('el miércoles 14 de octubre la práctica sustituye a la clase de Estadística', async () => {
     await cargarDatosIniciales(base)
     expect(resumen(clasesDelDia('2026-10-14', await datos()))).toEqual([
-      '15:00 Estadística (Práctica Todos)',
+      '15:00 Estadística (Práctica)',
       '17:00 Marketing',
       '19:00 Regulación',
     ])

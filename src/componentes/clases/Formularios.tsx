@@ -285,7 +285,7 @@ export function FormPuntual({
       </Campo>
       <Horas inicio={d.inicio} fin={d.fin} onCambio={cambiar} />
       <Campo etiqueta="Detalle (opcional)">
-        <input className={claseInput} value={d.detalle} onChange={(e) => cambiar({ detalle: e.target.value })} placeholder="Ej. Práctica G1" maxLength={40} />
+        <input className={claseInput} value={d.detalle} onChange={(e) => cambiar({ detalle: e.target.value })} placeholder="Ej. Práctica" maxLength={40} />
       </Campo>
       <Campo etiqueta="Aula (opcional)">
         <input className={claseInput} value={d.aula} onChange={(e) => cambiar({ aula: e.target.value })} maxLength={30} />
