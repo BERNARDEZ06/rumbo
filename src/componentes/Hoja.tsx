@@ -37,7 +37,7 @@ export function Hoja({ abierta, titulo, onCerrar, children }: Props) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={idTitulo}
-        className="relative w-full max-w-md rounded-t-3xl border border-borde bg-superficie p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-2xl animate-[subir_200ms_ease-out] md:rounded-3xl md:pb-5"
+        className="relative max-h-[92dvh] w-full max-w-md overflow-y-auto overscroll-contain rounded-t-3xl border border-borde bg-superficie p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-2xl animate-[subir_200ms_ease-out] md:rounded-3xl md:pb-5"
       >
         <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-borde md:hidden" aria-hidden />
         <div className="mb-4 flex items-center justify-between">

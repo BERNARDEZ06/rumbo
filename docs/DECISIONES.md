@@ -24,3 +24,6 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 18 | 2026-09-28 | **Ids aleatorios, fecha de último cambio y registro de borrados** en todos los datos | Preparan la sincronización: permiten saber qué versión es más nueva y qué se borró en otro dispositivo. |
 | 19 | 2026-09-28 | **La asistencia se guarda solo como excepción** | Como por defecto se asume que se fue a clase, basta con guardar las faltas (o cambios); menos datos y menos toques. |
 | 20 | 2026-09-28 | **El horario semanal tiene fechas de inicio y fin** | Las clases solo aparecen durante el cuatrimestre; en el siguiente se carga otro horario. |
+| 21 | 2026-09-28 | **Una marca por hábito y día, con id fijo** (`hábito|día`) | Evita marcas duplicadas (también al sincronizar) y simplifica "marcar/desmarcar". |
+| 22 | 2026-09-28 | **Racha viva hasta el final del día** | Si hoy aún no has marcado, la racha sigue contando desde ayer; así no ves "0" cada mañana. En los semanales, la semana en curso suma en cuanto se cumple. |
+| 23 | 2026-09-28 | **Gimnasio y Estudiar se crean solos la primera vez** | Menos fricción: la app ya sale con los objetivos del usuario. Si los borra, no vuelven. |

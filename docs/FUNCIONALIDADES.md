@@ -11,14 +11,14 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ Todo en español, con la semana de lunes a domingo.
 
 ### Hábitos
-- ⬜ Crear, editar, archivar y borrar hábitos, con nombre, icono o emoji y color.
-- ⬜ Tres tipos de objetivo:
+- ✅ Crear, editar, archivar y borrar hábitos, con nombre, icono o emoji y color.
+- ✅ Tres tipos de objetivo:
   - **Diario**: cada día (ej. "leer").
   - **X veces por semana**: ej. "gimnasio 4 días/semana".
   - **Por tiempo**: ej. "estudiar 2 h al día". Se apuntan minutos y la app muestra una barra de progreso.
-- ⬜ Marcar como hecho con un toque (o sumar minutos).
-- ⬜ Racha: días seguidos para los hábitos diarios y semanas seguidas cumpliendo el objetivo para los semanales.
-- ⬜ Progreso de la semana actual en cada hábito.
+- ✅ Marcar como hecho con un toque (o sumar minutos).
+- ✅ Racha: días seguidos para los hábitos diarios y semanas seguidas cumpliendo el objetivo para los semanales.
+- ✅ Progreso de la semana actual en cada hábito.
 
 ### Horario fijo (clases)
 - ⬜ Asignaturas con nombre y color.

@@ -25,7 +25,7 @@ Las pruebas de la lógica van junto a cada archivo (`racha.ts` → `racha.test.t
 | Tabla | Qué contiene |
 |---|---|
 | `habitos` | Cada hábito: nombre, color, tipo de objetivo (diario, veces por semana o por tiempo) y meta |
-| `registros` | Cada vez que marcas un hábito: qué hábito, qué día y cuántos minutos |
+| `registros` | Cada vez que marcas un hábito: qué hábito, qué día y cuántos minutos (uno por hábito y día; id = `hábito|día`) |
 | `asignaturas` | Nombre y color de cada asignatura |
 | `horario` | Bloques fijos semanales: día de la semana, hora de inicio y de fin, y asignatura |
 | `clasesPuntuales` | Clases de un día concreto (prácticas, Comunicación Persuasiva) |
@@ -53,3 +53,10 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `npm run comprobar`: revisa los tipos y pasa las pruebas de lógica.
 - `npx playwright test`: pruebas en navegador (genera capturas en `test-results/capturas/`).
 - `npm run build`: crea la versión final en `dist/`.
+
+## Piezas compartidas
+- `componentes/Hoja.tsx`: ventana que sube desde abajo (móvil) o aparece centrada (ordenador).
+- `componentes/ui.tsx`: botones, campos y selectores con el mismo estilo en toda la app.
+- `componentes/acciones.tsx`: ventanas que se abren desde cualquier sitio (ej. apuntar horas de estudio).
+- `componentes/colores.ts`: paleta de colores para hábitos y asignaturas.
+- `datos/iniciales.ts`: datos con los que arranca la app la primera vez (cada bloque solo se carga una vez).
