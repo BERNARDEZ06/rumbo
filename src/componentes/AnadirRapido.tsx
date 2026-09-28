@@ -1,5 +1,5 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { Timer, type LucideIcon } from 'lucide-react'
+import { CalendarPlus, Timer, type LucideIcon } from 'lucide-react'
 import { db } from '../datos/db'
 import type { TipoTarea } from '../datos/modelos'
 import { hoy } from '../logica/fechas'
@@ -30,7 +30,7 @@ const TAREAS: [TipoTarea, string, string][] = [
 
 /** Menú del botón "+": apuntar algo en segundos desde cualquier pantalla. */
 export function AnadirRapido({ abierta, onCerrar }: Props) {
-  const { apuntarMinutos, abrirTarea } = useAcciones()
+  const { apuntarMinutos, abrirTarea, abrirEvento } = useAcciones()
   // El primer hábito "por tiempo" activo (ej. Estudiar) recibe las horas de estudio.
   const habitoTiempo = useLiveQuery(
     () => db.habitos.orderBy('orden').filter((h) => h.tipo === 'tiempo' && !h.archivado).first(),
@@ -59,6 +59,16 @@ export function AnadirRapido({ abierta, onCerrar }: Props) {
             apuntarMinutos(habitoTiempo.id, hoy())
           }
         : undefined,
+    },
+    {
+      nombre: 'Evento',
+      descripcion: 'Médico, cumpleaños, reunión…',
+      icono: CalendarPlus,
+      color: 'text-violet-500 bg-violet-500/10',
+      accion: () => {
+        onCerrar()
+        abrirEvento({})
+      },
     },
   ]
 

@@ -38,7 +38,7 @@ export default function Habitos() {
       {activos.length === 0 ? (
         <Vacio icono={<Flame className="size-6" />} titulo="Sin hábitos" texto="Crea tu primer hábito con el botón «Nuevo»." />
       ) : (
-        <div className="grid gap-3">
+        <div className="grid grid-cols-1 gap-3">
           {activos.map((h) => (
             <TarjetaHabito key={h.id} habito={h} registros={porHabito.get(h.id) ?? []} hoy={hoy} onEditar={() => setFormulario({ habito: h })} />
           ))}
@@ -57,7 +57,7 @@ export default function Habitos() {
             Archivados ({archivados.length})
           </button>
           {verArchivados && (
-            <ul className="mt-3 grid gap-2">
+            <ul className="mt-3 grid grid-cols-1 gap-2">
               {archivados.map((h) => (
                 <li key={h.id}>
                   <button

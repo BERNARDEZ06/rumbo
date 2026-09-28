@@ -56,7 +56,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
 
   return (
     <Hoja abierta={abierta} titulo={habito ? 'Editar hábito' : 'Nuevo hábito'} onCerrar={onCerrar}>
-      <form onSubmit={enviar} className="grid gap-4">
+      <form onSubmit={enviar} className="grid grid-cols-1 gap-4">
         <Campo etiqueta="Nombre">
           <input
             className={claseInput}
@@ -68,7 +68,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
           />
         </Campo>
 
-        <div className="grid gap-1.5">
+        <div className="grid grid-cols-1 gap-1.5">
           <span className="text-sm font-medium text-texto-suave">Icono</span>
           <div className="grid grid-cols-8 gap-1.5">
             {EMOJIS.map((e) => (
@@ -88,7 +88,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
           </div>
         </div>
 
-        <div className="grid gap-1.5">
+        <div className="grid grid-cols-1 gap-1.5">
           <span className="text-sm font-medium text-texto-suave">Color</span>
           <div className="flex flex-wrap gap-2">
             {(Object.keys(COLORES) as NombreColor[]).map((c) => (
@@ -106,7 +106,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
           </div>
         </div>
 
-        <div className="grid gap-1.5">
+        <div className="grid grid-cols-1 gap-1.5">
           <span className="text-sm font-medium text-texto-suave">Objetivo</span>
           <Segmentado
             etiqueta="Tipo de objetivo"

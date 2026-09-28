@@ -64,7 +64,7 @@ export function FormTarea({ abierta, onCerrar }: Props) {
 
   return (
     <Hoja abierta={abierta !== null} titulo={tarea ? 'Editar' : `Nuevo: ${NOMBRE_TIPO[d.tipo].toLowerCase()}`} onCerrar={onCerrar}>
-      <form onSubmit={enviar} className="grid gap-4">
+      <form onSubmit={enviar} className="grid grid-cols-1 gap-4">
         <Segmentado etiqueta="Tipo" opciones={TIPOS} valor={d.tipo} onCambio={(tipo) => cambiar({ tipo })} />
 
         <Campo etiqueta="Asignatura">

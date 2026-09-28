@@ -45,7 +45,7 @@ export default function Tareas() {
     <>
       {cabecera}
 
-      <div className="grid gap-3">
+      <div className="grid grid-cols-1 gap-3">
         <Segmentado
           etiqueta="Ver"
           valor={vista}
@@ -76,7 +76,7 @@ export default function Tareas() {
         </div>
       </div>
 
-      <div className="mt-5 grid gap-6">
+      <div className="mt-5 grid grid-cols-1 gap-6">
         {vista === 'pendientes' &&
           (grupos.length === 0 ? (
             <Vacio icono={<ListChecks className="size-6" />} titulo="Nada pendiente" texto="Añade exámenes, entregas o repasos con el botón «Nueva» o con el +." />
@@ -90,7 +90,7 @@ export default function Tareas() {
                 >
                   {TITULO_GRUPO[g.grupo]} · {g.tareas.length}
                 </h2>
-                <ul className="grid gap-2">
+                <ul className="grid grid-cols-1 gap-2">
                   {g.tareas.map((t) => (
                     <FilaTarea key={t.id} tarea={t} asignatura={asig(t.asignaturaId)} hoy={hoy} />
                   ))}
@@ -103,7 +103,7 @@ export default function Tareas() {
           (hechas.length === 0 ? (
             <Vacio icono={<ListChecks className="size-6" />} titulo="Aún no hay tareas hechas" texto="Cuando marques una tarea, aparecerá aquí." />
           ) : (
-            <ul className="grid gap-2">
+            <ul className="grid grid-cols-1 gap-2">
               {hechas.map((t) => (
                 <FilaTarea key={t.id} tarea={t} asignatura={asig(t.asignaturaId)} hoy={hoy} />
               ))}

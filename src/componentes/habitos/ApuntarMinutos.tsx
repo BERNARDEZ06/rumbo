@@ -52,7 +52,7 @@ export function ApuntarMinutos({ objetivo, onCerrar }: Props) {
   return (
     <Hoja abierta={objetivo !== null} titulo={habito ? `${habito.emoji} ${habito.nombre}` : ''} onCerrar={onCerrar}>
       {objetivo && (
-        <div className="grid gap-5">
+        <div className="grid grid-cols-1 gap-5">
           <div>
             <p className="text-sm text-texto-suave first-letter:uppercase">{esHoy ? 'Hoy' : textoFechaLarga(objetivo.fecha)}</p>
             <p className="mt-1 text-3xl font-bold tracking-tight" aria-live="polite">
@@ -70,7 +70,7 @@ export function ApuntarMinutos({ objetivo, onCerrar }: Props) {
             </div>
           </div>
 
-          <div className="grid gap-2">
+          <div className="grid grid-cols-1 gap-2">
             <span className="text-sm font-medium text-texto-suave">Añadir</span>
             <div className="grid grid-cols-5 gap-2">
               {RAPIDOS.map(([m, texto]) => (

@@ -33,7 +33,9 @@ test('el tema oscuro se aplica y se recuerda al recargar', async ({ page }) => {
 })
 
 test('no hay desplazamiento horizontal', async ({ page }) => {
-  for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/tareas', '/#/ajustes/clases']) {
+  // Con el reloj en un día con clases largas ("Estadística · Práctica G1"), para cubrir el peor caso.
+  await page.clock.setFixedTime(new Date('2026-10-07T12:00:00+02:00'))
+  for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/tareas', '/#/calendario', '/#/ajustes/clases']) {
     await page.goto(ruta)
     const ancho = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
     expect(ancho).toBeLessThanOrEqual(0)

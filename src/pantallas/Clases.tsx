@@ -83,7 +83,7 @@ export default function Clases() {
       {volver}
       <Cabecera titulo="Clases" />
 
-      <div className="grid gap-4">
+      <div className="grid grid-cols-1 gap-4">
         <Seccion titulo="Cuatrimestre" descripcion="El horario semanal se repite entre estas dos fechas.">
           <div className="grid grid-cols-2 gap-3">
             <Campo etiqueta="Desde">
@@ -114,7 +114,7 @@ export default function Clases() {
         </Seccion>
 
         <Seccion titulo="Horario semanal" descripcion="Clases que se repiten cada semana." onAnadir={() => setAbierto({ tipo: 'bloque' })}>
-          <div className="grid gap-4">
+          <div className="grid grid-cols-1 gap-4">
             {NOMBRES_DIAS.map((nombre, i) => {
               const delDia = horario.filter((b) => b.diaSemana === i + 1).sort(porHora)
               if (delDia.length === 0) return null

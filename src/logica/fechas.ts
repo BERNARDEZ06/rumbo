@@ -130,3 +130,19 @@ export function textoDuracion(minutos: number): string {
   if (h === 0) return `${m} min`
   return m === 0 ? `${h} h` : `${h} h ${m} min`
 }
+
+/** "5 oct" */
+export function textoDiaMes(dia: Dia): string {
+  return format(deDia(dia), 'd MMM', { locale: es }).replace(/\./g, '')
+}
+
+/** "28 sep – 4 oct" (semana del día dado). */
+export function textoSemana(dia: Dia): string {
+  const semana = diasDeLaSemana(dia)
+  return `${textoDiaMes(semana[0])} – ${textoDiaMes(semana[6])}`
+}
+
+/** Hora actual "HH:MM". */
+export function horaActual(ahora: Date = new Date()): string {
+  return format(ahora, 'HH:mm')
+}

@@ -3,6 +3,8 @@ import { test } from '@playwright/test'
 // Genera capturas para revisar el diseño a ojo (no falla nunca por diseño).
 for (const tema of ['claro', 'oscuro'] as const) {
   test(`capturas en modo ${tema}`, async ({ page }, info) => {
+    // Siempre el mismo momento: lunes 5 oct 2026, 17:30 (hay examen, clases terminadas y en curso).
+    await page.clock.setFixedTime(new Date('2026-10-05T17:30:00+02:00'))
     await page.addInitScript((t) => localStorage.setItem('rumbo.tema', t), tema)
     const foto = (nombre: string) => page.screenshot({ path: `test-results/capturas/${info.project.name}-${tema}-${nombre}.png` })
 
@@ -35,6 +37,14 @@ for (const tema of ['claro', 'oscuro'] as const) {
     await page.keyboard.press('Escape')
 
     await page.keyboard.press('Escape')
+    for (const vista of ['Mes', 'Semana']) {
+      await page.goto('/#/calendario')
+      await page.getByRole('radio', { name: vista }).click()
+      await page.waitForTimeout(400)
+      await foto(`calendario-${vista.toLowerCase()}`)
+    }
+    await page.getByRole('radio', { name: 'Mes' }).click()
+
     await page.goto('/#/tareas')
     await page.waitForTimeout(400)
     await foto('tareas')

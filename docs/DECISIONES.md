@@ -35,3 +35,7 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 29 | 2026-09-28 | **Título automático de las tareas** ("Examen de Macro") si se deja vacío | Apuntar un examen en dos toques: tipo + asignatura + fecha. |
 | 30 | 2026-09-28 | **"Tratamiento de datos" se asocia a Bases de Datos** y "Bloomberg" queda sin asignatura | Es la asignatura más probable; el usuario puede cambiarlo en un toque. |
 | 31 | 2026-09-28 | **Las tareas se agrupan por urgencia** (atrasadas en rojo, hoy, próximos 7 días…) y el mismo día el examen va primero | Lo urgente se ve arriba sin tener que leer fechas. |
+| 32 | 2026-09-29 | **Asistencia: "No iré" también en clases futuras** | Si ya sabes que vas a faltar, lo marcas antes; un segundo toque lo deshace. |
+| 33 | 2026-09-29 | **Asistencia por debajo del 80 % en rojo** | Umbral habitual de asistencia mínima en la universidad; sirve de aviso. Ajustable más adelante si hace falta. |
+| 34 | 2026-09-29 | **Pruebas en navegador con reloj fijo** (lunes 5 oct 2026, 17:30) | Así las pruebas del calendario y la asistencia dan siempre el mismo resultado, sea el día que sea. |
+| 35 | 2026-09-29 | **Listas con `grid-cols-1`** | Evita que un texto largo ensanche la pantalla en el móvil (en iPhone haría que la página se viera "alejada"). |

@@ -29,8 +29,8 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Carga inicial del horario real y los festivos (ver `HORARIO.md`). También los exámenes y la entrega ya conocidos.
 
 ### Asistencia a clase
-- ⬜ Cuando termina una clase, se da por asistida automáticamente; solo hay que tocarla si **no** se fue (se puede cambiar desde Hoy o desde el Calendario).
-- ⬜ Porcentaje de asistencia por asignatura.
+- ✅ Cuando termina una clase, se da por asistida automáticamente; solo hay que tocarla si **no** se fue (se puede cambiar desde Hoy o desde el Calendario).
+- ✅ Porcentaje de asistencia por asignatura.
 
 ### Tareas (exámenes, entregas y repasos)
 - ✅ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
@@ -39,10 +39,10 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Aviso visual de las tareas vencidas y de las próximas (en los siguientes 7 días).
 
 ### Calendario
-- ⬜ **Vista mes**: cuadrícula de lunes a domingo con marcas de colores para los exámenes (rojo), las entregas (verde), los festivos y las clases. Al tocar un día, se ve su detalle.
-- ⬜ **Vista semana**: de lunes a domingo, con las clases, las tareas y los hábitos de cada día.
-- ⬜ Cambiar entre mes y semana, y moverse adelante y atrás.
-- ⬜ Añadir cosas puntuales a un día concreto (ej. "cita médico jueves 10:00").
+- ✅ **Vista mes**: cuadrícula de lunes a domingo con marcas de colores para los exámenes (rojo), las entregas (verde), los festivos y las clases. Al tocar un día, se ve su detalle.
+- ✅ **Vista semana**: de lunes a domingo, con las clases, las tareas y los hábitos de cada día.
+- ✅ Cambiar entre mes y semana, y moverse adelante y atrás.
+- ✅ Añadir cosas puntuales a un día concreto (ej. "cita médico jueves 10:00").
 
 ### Hoy
 - ⬜ La app se abre aquí: fecha, clases de hoy, hábitos pendientes de hoy, tareas de hoy y vencidas, y próximos exámenes.

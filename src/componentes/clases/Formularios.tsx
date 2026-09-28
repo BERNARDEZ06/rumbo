@@ -16,7 +16,7 @@ export const NOMBRES_DIAS = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes
 export function BotonBorrar({ onBorrar, aviso }: { onBorrar: () => Promise<void>; aviso?: string }) {
   const [confirmar, setConfirmar] = useState(false)
   return (
-    <div className="grid gap-1">
+    <div className="grid grid-cols-1 gap-1">
       <Boton variante="peligro" onClick={() => (confirmar ? onBorrar() : setConfirmar(true))}>
         <Trash2 className="size-4" />
         {confirmar ? '¿Seguro? Borrar' : 'Borrar'}
@@ -53,7 +53,7 @@ function Formulario({
   }
   return (
     <Hoja abierta={abierta} titulo={titulo} onCerrar={onCerrar}>
-      <form onSubmit={enviar} className="grid gap-4">
+      <form onSubmit={enviar} className="grid grid-cols-1 gap-4">
         {children}
         {error && <p className="text-sm text-red-600 dark:text-red-400">{error}</p>}
         <Boton type="submit" disabled={!valido} className="w-full">
@@ -148,7 +148,7 @@ export function FormAsignatura({ abierta, onCerrar, asignatura }: { abierta: boo
       <Campo etiqueta="Nombre corto (para el calendario)">
         <input className={claseInput} value={d.corto} onChange={(e) => cambiar({ corto: e.target.value })} placeholder="Ej. Macro" maxLength={16} />
       </Campo>
-      <div className="grid gap-1.5">
+      <div className="grid grid-cols-1 gap-1.5">
         <span className="text-sm font-medium text-texto-suave">Color</span>
         <div className="flex flex-wrap gap-2">
           {(Object.keys(COLORES) as NombreColor[]).map((c) => (

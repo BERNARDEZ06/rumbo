@@ -36,7 +36,7 @@ export function AjustarSemana({ habito, dia, abierta, onCerrar }: Props) {
 
   return (
     <Hoja abierta={abierta} titulo="Objetivo de esta semana" onCerrar={onCerrar}>
-      <div className="grid gap-5">
+      <div className="grid grid-cols-1 gap-5">
         <p className="text-sm text-texto-suave">
           {habito.emoji} {habito.nombre} · del {textoFechaCorta(semana[0])} al {textoFechaCorta(semana[6])}. Solo cambia esta
           semana; la siguiente vuelve a tu objetivo habitual ({texto(habito.meta)}).
