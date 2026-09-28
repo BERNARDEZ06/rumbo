@@ -10,7 +10,7 @@ Tú  ──►  Pantallas (React)  ──►  Lógica (reglas: rachas, fechas…
 ## Carpetas previstas
 ```
 src/
-  pantallas/     Cada pantalla de la app: Hoy, Semana, Tareas, Hábitos, Ajustes
+  pantallas/     Cada pantalla de la app: Hoy, Calendario, Tareas, Hábitos, Ajustes
   componentes/   Piezas reutilizables: botones, tarjetas, casillas, ventanas…
   logica/        Reglas puras (sin pantallas): cálculo de rachas, semanas, progreso…
   datos/         Base de datos (Dexie), modelos y copia de seguridad
@@ -27,6 +27,9 @@ Las pruebas de la lógica van junto a cada archivo (`racha.ts` → `racha.test.t
 | `registros` | Cada vez que marcas un hábito: qué hábito, qué día y cuántos minutos |
 | `asignaturas` | Nombre y color de cada asignatura |
 | `horario` | Bloques fijos semanales: día de la semana, hora de inicio y de fin, y asignatura |
+| `clasesPuntuales` | Clases de un día concreto (prácticas, Comunicación Persuasiva) |
+| `festivos` | Días sin clase |
+| `asistencia` | Si fuiste o no a cada clase: fecha, hora y asignatura |
 | `tareas` | Exámenes, entregas, repasos y otras tareas, con fecha límite y estado |
 | `eventos` | Cosas puntuales de un día concreto (ej. cita médica) |
 | `ajustes` | Tema (claro, oscuro o automático) y otras preferencias |

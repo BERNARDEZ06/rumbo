@@ -13,3 +13,4 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 7 | 2026-09-28 | **Horario como "plantilla semanal"** | Las clases se repiten cada semana, así que se introducen una vez y aparecen solas. |
 | 8 | 2026-09-28 | **Fechas guardadas como `AAAA-MM-DD`** | Evita errores de zona horaria (un día que "salta" al anterior). |
 | 9 | 2026-09-28 | **Vitest + Playwright** para las pruebas | Vitest prueba la lógica (rachas, fechas) en segundos; Playwright abre un navegador de verdad, en tamaño móvil y ordenador, para comprobar las pantallas. |
+| 10 | 2026-09-28 | **Calendario con vista mes y semana en una sola sección**, y **asistencia a clase en la Fase 1** | El usuario quiere un apartado de calendario para ver exámenes y entregas y marcar si ha ido a clase. Juntar mes y semana en una sección mantiene el menú en 5 botones. |

@@ -9,6 +9,7 @@ _Última actualización: 2026-09-28_
 - ✅ Preguntas iniciales sobre la rutina.
 - ✅ Documentos del proyecto: CLAUDE.md, VISION, FUNCIONALIDADES, ARQUITECTURA, DECISIONES y PROGRESO.
 - ✅ Horario de clase transcrito en `docs/HORARIO.md` (a partir del PDF de Comillas).
+- ✅ Plan ajustado: sección Calendario (mes + semana) y asistencia a clase en la Fase 1.
 
 ## En curso
 - 🔄 Nada. Esperando el visto bueno.
@@ -20,10 +21,10 @@ _Última actualización: 2026-09-28_
 | 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) | ⬜ |
 | 2 | Base de datos en el dispositivo y lógica de fechas y semanas (con pruebas) | ⬜ |
 | 3 | Hábitos: crear, editar, marcar, rachas y progreso semanal (con pruebas) | ⬜ |
-| 4 | Asignaturas y horario fijo semanal + carga del horario real | ⬜ |
+| 4 | Asignaturas, horario semanal, clases puntuales, festivos + carga de tus datos reales | ⬜ |
 | 5 | Tareas: exámenes, entregas y repasos, con fechas y filtros | ⬜ |
-| 6 | Semana: vista de lunes a domingo + eventos puntuales | ⬜ |
-| 7 | Hoy: pantalla de inicio con todo lo del día | ⬜ |
+| 6 | Calendario: vista mes y vista semana + eventos puntuales + marcar asistencia a clase | ⬜ |
+| 7 | Hoy: pantalla de inicio con todo lo del día (incluida la asistencia) | ⬜ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ⬜ |
 | 9 | App instalable (PWA) y publicación en GitHub Pages | ⬜ |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |

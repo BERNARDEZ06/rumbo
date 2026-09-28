@@ -5,7 +5,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 ## Fase 1: lo mínimo útil
 
 ### Estructura y diseño
-- ⬜ Navegación con 5 secciones: **Hoy**, **Semana**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
+- ⬜ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
 - ⬜ Modo claro, modo oscuro y opción "automático" (según el sistema).
 - ⬜ Todo en español, con la semana de lunes a domingo.
 
@@ -26,20 +26,25 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ Días festivos: ese día no aparecen las clases.
 - ⬜ Carga inicial del horario real, los festivos, los exámenes y las entregas (ver `HORARIO.md`).
 
+### Asistencia a clase
+- ⬜ En cada clase (desde Hoy o desde el Calendario), marcar **He ido** o **No he ido**.
+- ⬜ Porcentaje de asistencia por asignatura.
+
 ### Tareas (exámenes, entregas y repasos)
 - ⬜ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
 - ⬜ Marcar como hecha y deshacer.
 - ⬜ Lista ordenada por fecha, con filtros de pendientes, hechas y por asignatura.
 - ⬜ Aviso visual de las tareas vencidas y de las próximas (en los siguientes 7 días).
 
-### Semana (agenda)
-- ⬜ Vista de lunes a domingo con las clases, las tareas de cada día y los hábitos previstos.
-- ⬜ Moverse a la semana anterior y a la siguiente.
+### Calendario
+- ⬜ **Vista mes**: cuadrícula de lunes a domingo con marcas de colores para los exámenes (rojo), las entregas (verde), los festivos y las clases. Al tocar un día, se ve su detalle.
+- ⬜ **Vista semana**: de lunes a domingo, con las clases, las tareas y los hábitos de cada día.
+- ⬜ Cambiar entre mes y semana, y moverse adelante y atrás.
 - ⬜ Añadir cosas puntuales a un día concreto (ej. "cita médico jueves 10:00").
 
 ### Hoy
 - ⬜ La app se abre aquí: fecha, clases de hoy, hábitos pendientes de hoy, tareas de hoy y vencidas, y próximos exámenes.
-- ⬜ Marcar hábitos y tareas directamente desde esta pantalla.
+- ⬜ Marcar hábitos, tareas y asistencia a clase directamente desde esta pantalla.
 
 ### Datos
 - ⬜ Todo se guarda en el dispositivo.
@@ -52,7 +57,6 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 
 ## Fase 2: mejoras
 - ⬜ **Resumen semanal**: qué se ha cumplido y qué no (hábitos y tareas), visible cualquier día y destacado el domingo por la noche y el lunes por la mañana.
-- ⬜ **Calendario mensual** con los exámenes y las entregas.
 - ⬜ **Recordatorios en el calendario del iPhone**: exportar los exámenes y las entregas como eventos (archivo `.ics`) con aviso previo. Así avisa el propio iPhone, sin coste.
 - ⬜ Estadísticas de los hábitos: historial de las últimas semanas y porcentaje de cumplimiento.
 - ⬜ Planificar el estudio: repartir las 2 h diarias entre asignaturas.
