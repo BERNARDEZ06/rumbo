@@ -14,3 +14,6 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 8 | 2026-09-28 | **Fechas guardadas como `AAAA-MM-DD`** | Evita errores de zona horaria (un día que "salta" al anterior). |
 | 9 | 2026-09-28 | **Vitest + Playwright** para las pruebas | Vitest prueba la lógica (rachas, fechas) en segundos; Playwright abre un navegador de verdad, en tamaño móvil y ordenador, para comprobar las pantallas. |
 | 10 | 2026-09-28 | **Calendario con vista mes y semana en una sola sección**, y **asistencia a clase en la Fase 1** | El usuario quiere un apartado de calendario para ver exámenes y entregas y marcar si ha ido a clase. Juntar mes y semana en una sección mantiene el menú en 5 botones. |
+| 11 | 2026-09-28 | **Asistencia "por defecto sí"** | Marcar cada clase como asistida sería pesado (3 clases al día). Se asume que se fue y solo se marca la excepción. |
+| 12 | 2026-09-28 | **Botón "+" rápido y cuenta atrás de exámenes** | Reducen la fricción: apuntar algo debe llevar segundos y los exámenes deben verse venir. |
+| 13 | 2026-09-28 | **Sin cronómetro de estudio** | El usuario prefiere apuntar a mano lo que ha estudiado; un cronómetro añadiría complicación. |

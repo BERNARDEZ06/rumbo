@@ -6,6 +6,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 
 ### Estructura y diseño
 - ⬜ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
+- ⬜ Botón "+" siempre visible para añadir rápido una tarea, un examen o un repaso.
 - ⬜ Modo claro, modo oscuro y opción "automático" (según el sistema).
 - ⬜ Todo en español, con la semana de lunes a domingo.
 
@@ -27,7 +28,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ Carga inicial del horario real, los festivos, los exámenes y las entregas (ver `HORARIO.md`).
 
 ### Asistencia a clase
-- ⬜ En cada clase (desde Hoy o desde el Calendario), marcar **He ido** o **No he ido**.
+- ⬜ Cuando termina una clase, se da por asistida automáticamente; solo hay que tocarla si **no** se fue (se puede cambiar desde Hoy o desde el Calendario).
 - ⬜ Porcentaje de asistencia por asignatura.
 
 ### Tareas (exámenes, entregas y repasos)
@@ -45,6 +46,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 ### Hoy
 - ⬜ La app se abre aquí: fecha, clases de hoy, hábitos pendientes de hoy, tareas de hoy y vencidas, y próximos exámenes.
 - ⬜ Marcar hábitos, tareas y asistencia a clase directamente desde esta pantalla.
+- ⬜ Cuenta atrás de los próximos exámenes (ej. "Macro en 7 días").
 
 ### Datos
 - ⬜ Todo se guarda en el dispositivo.
