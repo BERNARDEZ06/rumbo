@@ -3,11 +3,12 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: planificación.** Documentos creados. Esperando el visto bueno del usuario al plan de la Fase 1 y **la foto del horario de clase** (no llegó en el primer mensaje).
+**Fase 1: planificación.** Documentos creados y horario leído. Esperando el visto bueno del usuario al plan de la Fase 1 y 2 datos del horario (ver "Pendiente del usuario").
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
 - ✅ Documentos del proyecto: CLAUDE.md, VISION, FUNCIONALIDADES, ARQUITECTURA, DECISIONES y PROGRESO.
+- ✅ Horario de clase transcrito en `docs/HORARIO.md` (a partir del PDF de Comillas).
 
 ## En curso
 - 🔄 Nada. Esperando el visto bueno.
@@ -28,7 +29,8 @@ _Última actualización: 2026-09-28_
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
-- Enviar la foto del horario de clase.
+- Confirmar el grupo de Business English (lunes y martes de 19:00 a 20:45).
+- Confirmar el grupo y la hora de Comunicación Persuasiva (algunos viernes por la mañana).
 - Dar el visto bueno al plan.
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 

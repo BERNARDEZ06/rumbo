@@ -22,7 +22,8 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 ### Horario fijo (clases)
 - ⬜ Asignaturas con nombre y color.
 - ⬜ Plantilla semanal: bloques fijos que se repiten cada semana (ej. "Estadística, lunes 15:00-17:00").
-- ⬜ Carga inicial del horario real de la universidad (de lunes a viernes, de 15:00 a 21:00).
+- ⬜ Clases con fechas concretas (ej. Comunicación Persuasiva, que solo tiene clase algunos viernes).
+- ⬜ Carga inicial del horario real (ver `HORARIO.md`).
 
 ### Tareas (exámenes, entregas y repasos)
 - ⬜ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
