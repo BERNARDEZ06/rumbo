@@ -59,7 +59,10 @@ export interface BloqueHorario extends Base {
   inicio: string // "15:00"
   fin: string // "16:45"
   aula?: string
-  /** Periodo en el que es válida (ej. el cuatrimestre). */
+}
+
+/** Fechas entre las que se repite el horario semanal (el cuatrimestre). Se guarda en ajustes. */
+export interface PeriodoClases {
   desde: Dia
   hasta: Dia
 }

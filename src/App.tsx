@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router'
 import { Marco } from './componentes/Marco'
 import Ajustes from './pantallas/Ajustes'
 import Calendario from './pantallas/Calendario'
+import Clases from './pantallas/Clases'
 import Habitos from './pantallas/Habitos'
 import Hoy from './pantallas/Hoy'
 import Tareas from './pantallas/Tareas'
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="tareas" element={<Tareas />} />
           <Route path="habitos" element={<Habitos />} />
           <Route path="ajustes" element={<Ajustes />} />
+          <Route path="ajustes/clases" element={<Clases />} />
           <Route path="*" element={<Hoy />} />
         </Route>
       </Routes>

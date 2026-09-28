@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 /** Estilo común de las cajas de texto. */
 export const claseInput =
-  'w-full rounded-xl border border-borde bg-superficie-2 px-3 py-2.5 text-base outline-none transition placeholder:text-texto-suave/70 focus:border-acento focus:ring-2 focus:ring-acento/20'
+  'w-full min-w-0 rounded-xl border border-borde bg-superficie-2 px-3 py-2.5 text-base outline-none transition placeholder:text-texto-suave/70 focus:border-acento focus:ring-2 focus:ring-acento/20'
 
 type Variante = 'principal' | 'secundario' | 'peligro' | 'fantasma'
 
@@ -29,7 +29,7 @@ export function Boton({
 
 export function Campo({ etiqueta, children }: { etiqueta: string; children: ReactNode }) {
   return (
-    <label className="grid gap-1.5">
+    <label className="grid min-w-0 gap-1.5">
       <span className="text-sm font-medium text-texto-suave">{etiqueta}</span>
       {children}
     </label>

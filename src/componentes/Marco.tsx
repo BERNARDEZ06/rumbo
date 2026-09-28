@@ -33,7 +33,7 @@ export function Marco() {
               <NavLink
                 key={ruta}
                 to={ruta}
-                end
+                end={ruta === '/'}
                 className={({ isActive }) =>
                   `flex items-center gap-3 rounded-xl px-3 py-2 font-medium transition ${
                     isActive ? 'bg-acento-suave text-acento' : 'text-texto-suave hover:bg-superficie-2 hover:text-texto'
@@ -72,7 +72,7 @@ export function Marco() {
               <li key={ruta}>
                 <NavLink
                   to={ruta}
-                  end
+                  end={ruta === '/'}
                   className={({ isActive }) =>
                     `flex h-16 flex-col items-center justify-center gap-1 text-[11px] font-medium transition ${
                       isActive ? 'text-acento' : 'text-texto-suave'

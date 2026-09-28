@@ -14,8 +14,8 @@ test('se puede ir a cada sección desde el menú', async ({ page }) => {
 
 test('el botón + abre y cierra el menú de añadir', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'Añadir' }).filter({ visible: true }).click()
-  const dialogo = page.getByRole('dialog', { name: 'Añadir' })
+  await page.getByRole('button', { name: 'Añadir', exact: true }).filter({ visible: true }).click()
+  const dialogo = page.getByRole('dialog', { name: 'Añadir', exact: true })
   await expect(dialogo).toBeVisible()
   await expect(dialogo.getByText('Examen')).toBeVisible()
   await dialogo.getByRole('button', { name: 'Cerrar' }).click()
@@ -33,7 +33,7 @@ test('el tema oscuro se aplica y se recuerda al recargar', async ({ page }) => {
 })
 
 test('no hay desplazamiento horizontal', async ({ page }) => {
-  for (const ruta of ['/', '/#/ajustes']) {
+  for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/ajustes/clases']) {
     await page.goto(ruta)
     const ancho = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
     expect(ancho).toBeLessThanOrEqual(0)

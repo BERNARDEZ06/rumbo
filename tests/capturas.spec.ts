@@ -34,7 +34,16 @@ for (const tema of ['claro', 'oscuro'] as const) {
     await foto('nuevo-habito')
     await page.keyboard.press('Escape')
 
-    await page.getByRole('button', { name: 'Añadir' }).filter({ visible: true }).click()
+    await page.keyboard.press('Escape')
+    await page.goto('/#/ajustes/clases')
+    await page.waitForTimeout(400)
+    await foto('clases')
+    await page.getByRole('button', { name: 'Añadir: Horario semanal' }).click()
+    await page.waitForTimeout(300)
+    await foto('nueva-clase')
+    await page.keyboard.press('Escape')
+
+    await page.getByRole('button', { name: 'Añadir', exact: true }).filter({ visible: true }).click()
     await page.waitForTimeout(300)
     await foto('anadir')
   })

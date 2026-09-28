@@ -22,11 +22,11 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ **Ajustar el objetivo de una semana concreta** (ej. 20 h de estudio en semana de exámenes, 2 días de gimnasio en una semana complicada). La semana siguiente vuelve al habitual. Una "semana libre" (0) no rompe la racha.
 
 ### Horario fijo (clases)
-- ⬜ Asignaturas con nombre y color.
-- ⬜ Plantilla semanal: bloques fijos que se repiten cada semana (ej. "Estadística, lunes 15:00-17:00").
-- ⬜ Clases con fechas concretas (ej. Comunicación Persuasiva, que solo tiene clase algunos viernes).
-- ⬜ Días festivos: ese día no aparecen las clases.
-- ⬜ Carga inicial del horario real, los festivos, los exámenes y las entregas (ver `HORARIO.md`).
+- ✅ Asignaturas con nombre y color.
+- ✅ Plantilla semanal: bloques fijos que se repiten cada semana (ej. "Estadística, lunes 15:00-17:00").
+- ✅ Clases con fechas concretas (ej. Comunicación Persuasiva, que solo tiene clase algunos viernes).
+- ✅ Días festivos: ese día no aparecen las clases.
+- ✅ Carga inicial del horario real y los festivos (ver `HORARIO.md`). Los exámenes y entregas se cargan en la tarea 5.
 
 ### Asistencia a clase
 - ⬜ Cuando termina una clase, se da por asistida automáticamente; solo hay que tocarla si **no** se fue (se puede cambiar desde Hoy o desde el Calendario).

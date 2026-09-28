@@ -82,7 +82,7 @@ test('crear, marcar y archivar un hábito nuevo', async ({ page }) => {
 })
 
 test('el botón + permite apuntar horas de estudio', async ({ page }) => {
-  await page.getByRole('button', { name: 'Añadir' }).filter({ visible: true }).click()
+  await page.getByRole('button', { name: 'Añadir', exact: true }).filter({ visible: true }).click()
   await page.getByRole('button', { name: /Horas de estudio/ }).click()
   await expect(page.getByRole('dialog', { name: /Estudiar/ })).toBeVisible()
 })

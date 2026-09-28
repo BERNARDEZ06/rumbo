@@ -1,4 +1,5 @@
-import { Monitor, Moon, Sun } from 'lucide-react'
+import { ChevronRight, GraduationCap, Monitor, Moon, Sun } from 'lucide-react'
+import { Link } from 'react-router'
 import { Cabecera } from '../componentes/Cabecera'
 import { useTema } from '../hooks/useTema'
 import type { Tema } from '../logica/tema'
@@ -36,6 +37,20 @@ export default function Ajustes() {
           ))}
         </div>
       </section>
+
+      <Link
+        to="/ajustes/clases"
+        className="mt-4 flex items-center gap-4 rounded-3xl border border-borde bg-superficie p-5 transition hover:bg-superficie-2"
+      >
+        <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-acento-suave text-acento">
+          <GraduationCap className="size-6" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block font-semibold">Clases</span>
+          <span className="block text-sm text-texto-suave">Asignaturas, horario, prácticas y festivos</span>
+        </span>
+        <ChevronRight className="size-5 text-texto-suave" />
+      </Link>
     </>
   )
 }

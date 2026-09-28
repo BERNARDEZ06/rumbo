@@ -27,10 +27,10 @@ Las pruebas de la lógica van junto a cada archivo (`racha.ts` → `racha.test.t
 | `habitos` | Cada hábito: nombre, color, tipo de objetivo (diario, veces por semana o por tiempo) y meta; en los de tiempo, si es al día o a la semana; y los ajustes de semanas concretas |
 | `registros` | Cada vez que marcas un hábito: qué hábito, qué día y cuántos minutos (uno por hábito y día; id = `hábito|día`) |
 | `asignaturas` | Nombre y color de cada asignatura |
-| `horario` | Bloques fijos semanales: día de la semana, hora de inicio y de fin, y asignatura |
+| `horario` | Bloques fijos semanales: día de la semana, hora de inicio y de fin, asignatura y aula. Se repiten entre las fechas del cuatrimestre (ajuste `clases.periodo`) |
 | `clasesPuntuales` | Clases de un día concreto (prácticas, Comunicación Persuasiva) |
 | `festivos` | Días sin clase |
-| `asistencia` | Si fuiste o no a cada clase: fecha, hora y asignatura |
+| `asistencia` | Si fuiste o no a cada clase: fecha, hora y asignatura. Solo se guardan las excepciones; id = `día|idDeLaClase` |
 | `tareas` | Exámenes, entregas, repasos y otras tareas, con fecha límite y estado |
 | `eventos` | Cosas puntuales de un día concreto (ej. cita médica) |
 | `ajustes` | Preferencias de la app (el tema claro/oscuro se guarda aparte; ver DECISIONES n.º 14) |
@@ -60,3 +60,5 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `componentes/acciones.tsx`: ventanas que se abren desde cualquier sitio (ej. apuntar horas de estudio).
 - `componentes/colores.ts`: paleta de colores para hábitos y asignaturas.
 - `datos/iniciales.ts`: datos con los que arranca la app la primera vez (cada bloque solo se carga una vez).
+- `logica/clases.ts`: calcula las clases de cualquier día (horario semanal + clases puntuales − festivos) y el estado de asistencia.
+- `datos/clases.ts`: `useDatosClases()` da a las pantallas todo lo necesario sobre clases, actualizado al momento.
