@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tarea 0 terminada; siguiente: tarea 1 (diseño base y navegación).
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 y 1 terminadas; siguiente: tarea 2 (base de datos y lógica de fechas).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -11,6 +11,7 @@ _Última actualización: 2026-09-28_
 - ✅ Horario de clase transcrito en `docs/HORARIO.md` (a partir del PDF de Comillas).
 - ✅ Plan ajustado: sección Calendario (mes + semana), asistencia a clase, botón "+" y cuenta atrás de exámenes.
 - ✅ Tarea 0: Node.js 24 instalado; proyecto base con Vite 8, React 19, TypeScript 7, Tailwind 4 y Vitest 5. Compila, pasa las pruebas y se abre en el navegador.
+- ✅ Tarea 1: diseño base (colores, modo claro/oscuro/automático, tipografía), menú de 5 secciones (barra inferior en móvil, lateral en ordenador), botón "+" con menú de añadir (opciones aún desactivadas), pantallas vacías y selector de tema en Ajustes. 12 pruebas en navegador + 4 de lógica.
 
 ## En curso
 - 🔄 Nada.
@@ -19,7 +20,7 @@ _Última actualización: 2026-09-28_
 | # | Tarea | Estado |
 |---|---|---|
 | 0 | Instalar Node.js en el ordenador y crear el proyecto base (Vite, React, TypeScript, Tailwind y pruebas) | ✅ |
-| 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) y botón "+" | ⬜ |
+| 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) y botón "+" | ✅ |
 | 2 | Base de datos en el dispositivo y lógica de fechas y semanas (con pruebas) | ⬜ |
 | 3 | Hábitos: crear, editar, marcar, rachas y progreso semanal (con pruebas) | ⬜ |
 | 4 | Asignaturas, horario semanal, clases puntuales, festivos + carga de tus datos reales | ⬜ |

@@ -1,1 +1,66 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/* El modo oscuro se activa con la clase .dark en <html> (así se puede elegir a mano). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colores de la app. Se usan como bg-fondo, text-texto, border-borde, etc. */
+:root {
+  --fondo: #f6f7f9;
+  --superficie: #ffffff;
+  --superficie-2: #f0f2f5;
+  --borde: #e3e6eb;
+  --texto: #0f172a;
+  --texto-suave: #64748b;
+  --acento: #4f46e5;
+  --acento-suave: #eef0ff;
+  --acento-texto: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --fondo: #0b0f17;
+  --superficie: #131925;
+  --superficie-2: #1a2130;
+  --borde: #242c3b;
+  --texto: #e7eaf0;
+  --texto-suave: #8b95a7;
+  --acento: #818cf8;
+  --acento-suave: #1e2140;
+  --acento-texto: #0b0f17;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-superficie-2: var(--superficie-2);
+  --color-borde: var(--borde);
+  --color-texto: var(--texto);
+  --color-texto-suave: var(--texto-suave);
+  --color-acento: var(--acento);
+  --color-acento-suave: var(--acento-suave);
+  --color-acento-texto: var(--acento-texto);
+}
+
+html,
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes subir {
+  from { transform: translateY(16px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes aparecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

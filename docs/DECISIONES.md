@@ -17,3 +17,6 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 11 | 2026-09-28 | **Asistencia "por defecto sí"** | Marcar cada clase como asistida sería pesado (3 clases al día). Se asume que se fue y solo se marca la excepción. |
 | 12 | 2026-09-28 | **Botón "+" rápido y cuenta atrás de exámenes** | Reducen la fricción: apuntar algo debe llevar segundos y los exámenes deben verse venir. |
 | 13 | 2026-09-28 | **Sin cronómetro de estudio** | El usuario prefiere apuntar a mano lo que ha estudiado; un cronómetro añadiría complicación. |
+| 14 | 2026-09-28 | **Tema guardado en el navegador (localStorage)**, no en la base de datos | Hay que saberlo antes de pintar la pantalla para evitar un destello blanco al abrir en modo oscuro. |
+| 15 | 2026-09-28 | **Navegación con `#/` (HashRouter)** | GitHub Pages no sabe redirigir direcciones internas; con `#/` cualquier enlace funciona siempre. |
+| 16 | 2026-09-28 | **Color principal índigo y tipografía Inter incluida** | Aspecto moderno y sobrio; la fuente va dentro de la app para que funcione sin conexión. |
