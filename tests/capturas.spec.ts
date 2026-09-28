@@ -35,6 +35,13 @@ for (const tema of ['claro', 'oscuro'] as const) {
     await page.keyboard.press('Escape')
 
     await page.keyboard.press('Escape')
+    await page.goto('/#/tareas')
+    await page.waitForTimeout(400)
+    await foto('tareas')
+    await page.getByRole('button', { name: 'Abrir Examen de Macro' }).click()
+    await page.waitForTimeout(300)
+    await foto('editar-tarea')
+    await page.keyboard.press('Escape')
     await page.goto('/#/ajustes/clases')
     await page.waitForTimeout(400)
     await foto('clases')

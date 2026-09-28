@@ -30,5 +30,8 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 24 | 2026-09-28 | **Estudio medido por semana (14 h) y ajustable semana a semana** | Petición del usuario: hay semanas de más y de menos estudio. Medirlo por semana permite compensar días y ajustar la meta solo de esa semana sin tocar la habitual. |
 | 25 | 2026-09-28 | **"Semana libre" (meta 0) no rompe la racha** | Vacaciones o semanas imposibles no deberían castigar; así la racha sigue siendo motivadora. |
 | 26 | 2026-09-28 | **Una clase puntual de la misma asignatura que coincide con una semanal la sustituye** | Las prácticas de Estadística de los miércoles son en lugar de la clase normal; así no salen dos clases a la vez. |
-| 27 | 2026-09-28 | **Fin del cuatrimestre estimado el 18 dic 2026 y 8 dic añadido como festivo** | El usuario no dio la fecha de fin; se usa una estimación editable. El 8 de diciembre es festivo nacional. Pendiente de confirmar por el usuario. |
+| 27 | 2026-09-28 | **Clases hasta el 8 dic 2026; el 8 dic es festivo y no hay más festivos** | Confirmado por el usuario. El último día real de clase es el lunes 7 dic. |
 | 28 | 2026-09-28 | **Asignaturas, horario y festivos se editan en Ajustes → Clases** | Se configuran pocas veces; así el menú principal queda para el día a día. |
+| 29 | 2026-09-28 | **Título automático de las tareas** ("Examen de Macro") si se deja vacío | Apuntar un examen en dos toques: tipo + asignatura + fecha. |
+| 30 | 2026-09-28 | **"Tratamiento de datos" se asocia a Bases de Datos** y "Bloomberg" queda sin asignatura | Es la asignatura más probable; el usuario puede cambiarlo en un toque. |
+| 31 | 2026-09-28 | **Las tareas se agrupan por urgencia** (atrasadas en rojo, hoy, próximos 7 días…) y el mismo día el examen va primero | Lo urgente se ve arriba sin tener que leer fechas. |

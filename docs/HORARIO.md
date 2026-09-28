@@ -36,9 +36,9 @@ Se usará para cargar los datos iniciales en las tareas 4 y 5 de la Fase 1.
 | Lun 23 nov | 12:30 | G1 |
 
 ## Festivos (sin clase)
-Lunes 12 oct · Lunes 2 nov · Lunes 9 nov · Martes 8 dic (añadido: festivo nacional, pendiente de confirmar)
+Lunes 12 oct · Lunes 2 nov · Lunes 9 nov · Martes 8 dic (confirmado). No hay más festivos en el cuatrimestre.
 
-Fin de clases del cuatrimestre: estimado el 18 dic 2026 (pendiente de confirmar).
+Fin de clases del cuatrimestre: 8 dic 2026 (confirmado; al ser festivo, el último día de clase es el lunes 7 dic).
 
 ## Exámenes y entregas ya conocidos
 Colores del calendario del usuario: rojo = examen, verde = trabajo o entrega. Los amarillos (Mock, AI Estadística, Bloomberg) también son exámenes.

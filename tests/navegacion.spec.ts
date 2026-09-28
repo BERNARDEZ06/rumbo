@@ -33,7 +33,7 @@ test('el tema oscuro se aplica y se recuerda al recargar', async ({ page }) => {
 })
 
 test('no hay desplazamiento horizontal', async ({ page }) => {
-  for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/ajustes/clases']) {
+  for (const ruta of ['/', '/#/ajustes', '/#/habitos', '/#/tareas', '/#/ajustes/clases']) {
     await page.goto(ruta)
     const ancho = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
     expect(ancho).toBeLessThanOrEqual(0)

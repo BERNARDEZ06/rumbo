@@ -16,7 +16,7 @@ test('aparece el horario real cargado', async ({ page }) => {
   await expect(horario.getByText('Lunes')).toBeVisible()
   await expect(horario.getByRole('button', { name: /Macro 15:00–16:45 · O-201C/ })).toBeVisible()
   await expect(seccion(page, 'Festivos').getByText('La Almudena')).toBeVisible()
-  await expect(page.getByLabel('Hasta')).toHaveValue('2026-12-18')
+  await expect(page.getByLabel('Hasta')).toHaveValue('2026-12-08')
 })
 
 test('añadir un festivo', async ({ page }) => {

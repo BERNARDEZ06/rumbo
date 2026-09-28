@@ -1,16 +1,18 @@
 import { useLiveQuery } from 'dexie-react-hooks'
-import { BookOpen, ClipboardCheck, FileText, GraduationCap, Timer, type LucideIcon } from 'lucide-react'
+import { Timer, type LucideIcon } from 'lucide-react'
 import { db } from '../datos/db'
+import type { TipoTarea } from '../datos/modelos'
 import { hoy } from '../logica/fechas'
 import { useAcciones } from './acciones'
 import { Hoja } from './Hoja'
+import { ESTILO_TIPO } from './tareas/tipos'
 
 interface Opcion {
   nombre: string
   descripcion: string
   icono: LucideIcon
   color: string
-  /** Si no tiene acción todavía, se muestra como "Pronto". */
+  /** Si no tiene acción, se muestra desactivada. */
   accion?: () => void
 }
 
@@ -19,9 +21,16 @@ interface Props {
   onCerrar: () => void
 }
 
+const TAREAS: [TipoTarea, string, string][] = [
+  ['examen', 'Examen', 'Fecha y asignatura'],
+  ['entrega', 'Entrega', 'Trabajo con fecha límite'],
+  ['repaso', 'Repaso', 'Algo de clase que repasar'],
+  ['otra', 'Tarea', 'Cualquier otra cosa'],
+]
+
 /** Menú del botón "+": apuntar algo en segundos desde cualquier pantalla. */
 export function AnadirRapido({ abierta, onCerrar }: Props) {
-  const { apuntarMinutos } = useAcciones()
+  const { apuntarMinutos, abrirTarea } = useAcciones()
   // El primer hábito "por tiempo" activo (ej. Estudiar) recibe las horas de estudio.
   const habitoTiempo = useLiveQuery(
     () => db.habitos.orderBy('orden').filter((h) => h.tipo === 'tiempo' && !h.archivado).first(),
@@ -29,13 +38,19 @@ export function AnadirRapido({ abierta, onCerrar }: Props) {
   )
 
   const opciones: Opcion[] = [
-    { nombre: 'Examen', descripcion: 'Fecha y asignatura', icono: GraduationCap, color: 'text-red-500 bg-red-500/10' },
-    { nombre: 'Entrega', descripcion: 'Trabajo con fecha límite', icono: FileText, color: 'text-emerald-500 bg-emerald-500/10' },
-    { nombre: 'Repaso', descripcion: 'Algo de clase que repasar', icono: BookOpen, color: 'text-sky-500 bg-sky-500/10' },
-    { nombre: 'Tarea', descripcion: 'Cualquier otra cosa', icono: ClipboardCheck, color: 'text-amber-500 bg-amber-500/10' },
+    ...TAREAS.map(([tipo, nombre, descripcion]) => ({
+      nombre,
+      descripcion,
+      icono: ESTILO_TIPO[tipo].icono,
+      color: ESTILO_TIPO[tipo].color,
+      accion: () => {
+        onCerrar()
+        abrirTarea({ tipo })
+      },
+    })),
     {
       nombre: 'Horas de estudio',
-      descripcion: habitoTiempo ? `Apunta lo que has estudiado hoy` : 'Crea un hábito «por tiempo» primero',
+      descripcion: habitoTiempo ? 'Apunta lo que has estudiado hoy' : 'Crea un hábito «por tiempo» primero',
       icono: Timer,
       color: 'text-acento bg-acento-suave',
       accion: habitoTiempo
@@ -56,7 +71,7 @@ export function AnadirRapido({ abierta, onCerrar }: Props) {
               type="button"
               disabled={!accion}
               onClick={accion}
-              className="flex w-full items-center gap-3 rounded-2xl border border-borde p-3 text-left transition enabled:hover:bg-superficie-2 enabled:active:scale-[0.99] disabled:cursor-not-allowed"
+              className="flex w-full items-center gap-3 rounded-2xl border border-borde p-3 text-left transition enabled:hover:bg-superficie-2 enabled:active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <span className={`grid size-10 shrink-0 place-items-center rounded-xl ${color}`}>
                 <Icono className="size-5" />
@@ -65,7 +80,6 @@ export function AnadirRapido({ abierta, onCerrar }: Props) {
                 <span className="block font-medium">{nombre}</span>
                 <span className="block text-sm text-texto-suave">{descripcion}</span>
               </span>
-              {!accion && <span className="rounded-full bg-superficie-2 px-2 py-0.5 text-xs text-texto-suave">Pronto</span>}
             </button>
           </li>
         ))}

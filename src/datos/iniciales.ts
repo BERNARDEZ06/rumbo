@@ -10,6 +10,7 @@ import { crearHabito } from './habitos'
 export async function cargarDatosIniciales(base: BaseDeDatos = db): Promise<void> {
   await unaVez('inicial.habitos', base, () => cargarHabitos(base))
   await unaVez('inicial.horario', base, () => cargarHorario(base))
+  await unaVez('inicial.tareas', base, () => cargarTareas(base))
 }
 
 async function unaVez(clave: string, base: BaseDeDatos, cargar: () => Promise<void>) {
@@ -117,6 +118,32 @@ async function cargarHorario(base: BaseDeDatos) {
 
   for (const [fecha, nombre] of FESTIVOS) await guardar('festivos', { fecha, nombre }, base)
 
-  // Fin del cuatrimestre estimado; se puede cambiar en Ajustes → Clases.
-  await guardarPeriodo({ desde: '2026-09-07', hasta: '2026-12-18' }, base)
+  // Clases del 7 sep al 8 dic (confirmado por el usuario); se puede cambiar en Ajustes → Clases.
+  await guardarPeriodo({ desde: '2026-09-07', hasta: '2026-12-08' }, base)
+}
+
+/* ---------- Exámenes y entregas ya conocidos (calendario del usuario) ---------- */
+
+// [fecha, tipo, título, nombre corto de la asignatura o null]
+const TAREAS: [string, 'examen' | 'entrega', string, string | null][] = [
+  ['2026-10-05', 'examen', 'Examen de Macro', 'Macro'],
+  ['2026-10-05', 'entrega', 'Entrega de Macroeconomía', 'Macro'],
+  ['2026-10-08', 'examen', 'Examen de Contabilidad', 'Contabilidad'],
+  ['2026-10-10', 'examen', 'Mock de Estadística', 'Estadística'],
+  ['2026-10-19', 'examen', 'Tratamiento de datos', 'Bases de Datos'],
+  ['2026-10-21', 'examen', 'Examen de Marketing', 'Marketing'],
+  ['2026-11-04', 'examen', 'Examen de Estadística', 'Estadística'],
+  ['2026-11-05', 'examen', 'Examen de Contabilidad', 'Contabilidad'],
+  ['2026-11-28', 'examen', 'AI Estadística', 'Estadística'],
+  ['2026-12-03', 'examen', 'Bloomberg', null],
+]
+
+async function cargarTareas(base: BaseDeDatos) {
+  if ((await base.tareas.count()) > 0) return
+  const asignaturas = await base.asignaturas.toArray()
+  const creado = Date.now()
+  for (const [fecha, tipo, titulo, corto] of TAREAS) {
+    const asignaturaId = corto ? asignaturas.find((a) => a.corto === corto)?.id : undefined
+    await guardar('tareas', { titulo, tipo, fecha, asignaturaId, hecha: 0, creado }, base)
+  }
 }

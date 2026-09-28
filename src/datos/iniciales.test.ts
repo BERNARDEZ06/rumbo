@@ -63,6 +63,13 @@ describe('datos iniciales del usuario', () => {
     ])
   })
 
+  it('las clases acaban el 8 de diciembre: el lunes 7 hay clase y el miércoles 9 ya no', async () => {
+    await cargarDatosIniciales(base)
+    expect(clasesDelDia('2026-12-07', await datos())).toHaveLength(3)
+    expect(clasesDelDia('2026-12-08', await datos())).toEqual([])
+    expect(clasesDelDia('2026-12-09', await datos())).toEqual([])
+  })
+
   it('el 12 de octubre es festivo y no hay clases', async () => {
     await cargarDatosIniciales(base)
     expect(clasesDelDia('2026-10-12', await datos())).toEqual([])
@@ -75,5 +82,17 @@ describe('datos iniciales del usuario', () => {
     await cargarDatosIniciales(base)
     expect(await base.asignaturas.count()).toBe(7)
     expect(await base.horario.count()).toBe(14)
+  })
+})
+
+describe('exámenes y entregas iniciales', () => {
+  it('carga 9 exámenes y 1 entrega, unidos a su asignatura', async () => {
+    await cargarDatosIniciales(base)
+    const tareas = await base.tareas.toArray()
+    expect(tareas.filter((t) => t.tipo === 'examen')).toHaveLength(9)
+    expect(tareas.filter((t) => t.tipo === 'entrega')).toHaveLength(1)
+    const macro = await base.asignaturas.filter((a) => a.corto === 'Macro').first()
+    expect(tareas.find((t) => t.titulo === 'Examen de Macro')).toMatchObject({ fecha: '2026-10-05', asignaturaId: macro!.id, hecha: 0 })
+    expect(tareas.find((t) => t.titulo === 'Bloomberg')?.asignaturaId).toBeUndefined()
   })
 })

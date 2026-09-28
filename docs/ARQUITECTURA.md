@@ -62,3 +62,5 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `datos/iniciales.ts`: datos con los que arranca la app la primera vez (cada bloque solo se carga una vez).
 - `logica/clases.ts`: calcula las clases de cualquier día (horario semanal + clases puntuales − festivos) y el estado de asistencia.
 - `datos/clases.ts`: `useDatosClases()` da a las pantallas todo lo necesario sobre clases, actualizado al momento.
+- `logica/tareas.ts`: orden, grupos por urgencia, próximos exámenes (para la cuenta atrás) y título automático.
+- `componentes/tareas/`: formulario (`FormTarea`, se abre desde cualquier sitio con `useAcciones().abrirTarea`) y fila de tarea reutilizable (`FilaTarea`).

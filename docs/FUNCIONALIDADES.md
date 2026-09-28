@@ -6,7 +6,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 
 ### Estructura y diseño
 - ⬜ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
-- ⬜ Botón "+" siempre visible para añadir rápido una tarea, un examen o un repaso.
+- ✅ Botón "+" siempre visible para añadir rápido una tarea, un examen o un repaso.
 - ⬜ Modo claro, modo oscuro y opción "automático" (según el sistema).
 - ⬜ Todo en español, con la semana de lunes a domingo.
 
@@ -26,17 +26,17 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Plantilla semanal: bloques fijos que se repiten cada semana (ej. "Estadística, lunes 15:00-17:00").
 - ✅ Clases con fechas concretas (ej. Comunicación Persuasiva, que solo tiene clase algunos viernes).
 - ✅ Días festivos: ese día no aparecen las clases.
-- ✅ Carga inicial del horario real y los festivos (ver `HORARIO.md`). Los exámenes y entregas se cargan en la tarea 5.
+- ✅ Carga inicial del horario real y los festivos (ver `HORARIO.md`). También los exámenes y la entrega ya conocidos.
 
 ### Asistencia a clase
 - ⬜ Cuando termina una clase, se da por asistida automáticamente; solo hay que tocarla si **no** se fue (se puede cambiar desde Hoy o desde el Calendario).
 - ⬜ Porcentaje de asistencia por asignatura.
 
 ### Tareas (exámenes, entregas y repasos)
-- ⬜ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
-- ⬜ Marcar como hecha y deshacer.
-- ⬜ Lista ordenada por fecha, con filtros de pendientes, hechas y por asignatura.
-- ⬜ Aviso visual de las tareas vencidas y de las próximas (en los siguientes 7 días).
+- ✅ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
+- ✅ Marcar como hecha y deshacer.
+- ✅ Lista ordenada por fecha, con filtros de pendientes, hechas y por asignatura.
+- ✅ Aviso visual de las tareas vencidas y de las próximas (en los siguientes 7 días).
 
 ### Calendario
 - ⬜ **Vista mes**: cuadrícula de lunes a domingo con marcas de colores para los exámenes (rojo), las entregas (verde), los festivos y las clases. Al tocar un día, se ve su detalle.
