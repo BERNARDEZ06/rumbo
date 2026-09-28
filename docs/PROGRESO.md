@@ -29,8 +29,8 @@ _Última actualización: 2026-09-28_
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
-- Confirmar el grupo de Business English (lunes y martes de 19:00 a 20:45).
-- Confirmar el grupo y la hora de Comunicación Persuasiva (algunos viernes por la mañana).
+- ✅ Business English: grupo B2 de Kevin McCourt. Comunicación Persuasiva: grupo 1.
+- Confirmar el grupo de prácticas de Estadística (G1 o G2) y la hora de Comunicación Persuasiva.
 - Dar el visto bueno al plan.
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 

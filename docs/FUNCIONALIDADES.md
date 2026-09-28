@@ -23,7 +23,8 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ Asignaturas con nombre y color.
 - ⬜ Plantilla semanal: bloques fijos que se repiten cada semana (ej. "Estadística, lunes 15:00-17:00").
 - ⬜ Clases con fechas concretas (ej. Comunicación Persuasiva, que solo tiene clase algunos viernes).
-- ⬜ Carga inicial del horario real (ver `HORARIO.md`).
+- ⬜ Días festivos: ese día no aparecen las clases.
+- ⬜ Carga inicial del horario real, los festivos, los exámenes y las entregas (ver `HORARIO.md`).
 
 ### Tareas (exámenes, entregas y repasos)
 - ⬜ Crear tareas con título, tipo (**Examen**, **Entrega**, **Repaso** u **Otra**), asignatura (opcional), fecha límite (opcional) y notas.
