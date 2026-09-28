@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: planificación.** Documentos creados y horario leído. Esperando el visto bueno del usuario al plan de la Fase 1 y 2 datos del horario (ver "Pendiente del usuario").
+**Fase 1: planificación.** Documentos creados y horario leído. Horario completo. Solo falta el visto bueno del usuario al plan de la Fase 1.
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -30,7 +30,7 @@ _Última actualización: 2026-09-28_
 
 ## Pendiente del usuario
 - ✅ Business English: grupo B2 de Kevin McCourt. Comunicación Persuasiva: grupo 1.
-- Confirmar el grupo de prácticas de Estadística (G1 o G2) y la hora de Comunicación Persuasiva.
+- ✅ Prácticas de Estadística: G1. Comunicación Persuasiva: de 12:00 a 13:30.
 - Dar el visto bueno al plan.
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 
