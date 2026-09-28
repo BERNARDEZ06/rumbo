@@ -24,6 +24,11 @@ for (const tema of ['claro', 'oscuro'] as const) {
     await page.waitForTimeout(300)
     await foto('habitos')
 
+    await page.getByRole('article').filter({ hasText: 'Estudiar' }).getByRole('button', { name: 'Ajustar esta semana' }).click()
+    await page.waitForTimeout(300)
+    await foto('ajustar-semana')
+    await page.keyboard.press('Escape')
+
     await page.getByRole('button', { name: 'Nuevo' }).click()
     await page.waitForTimeout(300)
     await foto('nuevo-habito')

@@ -98,3 +98,56 @@ describe('textos', () => {
     expect(textoRacha(3, 'semanas')).toBe('3 semanas')
   })
 })
+
+describe('horas de estudio por semana con ajustes', () => {
+  // 14 h por semana por defecto
+  const semanal14 = { tipo: 'tiempo' as const, periodo: 'semana' as const, meta: 840 }
+
+  it('describe la meta semanal', () => {
+    expect(textoMeta(semanal14)).toBe('14 h por semana')
+  })
+
+  it('los minutos de la semana se comparan con la meta de la semana', () => {
+    const r = minutos(['2026-09-28', 300], ['2026-09-30', 240])
+    const p = progresoSemana(semanal14, r, '2026-10-01')
+    expect(p.minutos).toBe(540)
+    expect(p.objetivo).toBe(840)
+    expect(p.cumplida).toBe(false)
+    expect(p.hechos).toBe(2) // días en los que se estudió algo
+  })
+
+  it('una semana ajustada usa su propia meta y la siguiente vuelve a la habitual', () => {
+    const ajustado = { ...semanal14, ajustesSemana: { '2026-09-28': 480 } } // 8 h esa semana
+    const r = minutos(['2026-09-28', 300], ['2026-09-30', 240])
+    const p = progresoSemana(ajustado, r, '2026-10-01')
+    expect(p.objetivo).toBe(480)
+    expect(p.ajustada).toBe(true)
+    expect(p.cumplida).toBe(true)
+    expect(progresoSemana(ajustado, r, '2026-10-06').objetivo).toBe(840)
+    expect(progresoSemana(ajustado, r, '2026-10-06').ajustada).toBe(false)
+  })
+
+  it('racha en semanas, respetando la meta de cada semana', () => {
+    const ajustado = { ...semanal14, ajustesSemana: { '2026-09-21': 1200 } } // 20 h semana de exámenes
+    const r = minutos(['2026-09-14', 840], ['2026-09-21', 900], ['2026-09-28', 840])
+    // 14-20 sep: 14 h ✔ · 21-27 sep: 15 h de 20 ✘ · 28 sep-4 oct: 14 h ✔
+    expect(calcularRacha(ajustado, r, '2026-10-01')).toEqual({ actual: 1, mejor: 1, unidad: 'semanas' })
+    expect(calcularRacha(semanal14, r, '2026-10-01')).toEqual({ actual: 3, mejor: 3, unidad: 'semanas' })
+  })
+
+  it('una semana libre (meta 0) no rompe la racha', () => {
+    const conVacaciones = { ...semanal14, ajustesSemana: { '2026-09-21': 0 } }
+    const r = minutos(['2026-09-14', 840], ['2026-09-28', 840])
+    expect(calcularRacha(conVacaciones, r, '2026-10-01').actual).toBe(3)
+  })
+
+  it('el gimnasio también se puede ajustar una semana', () => {
+    const gimAjustado = { ...gimnasio, ajustesSemana: { '2026-09-21': 2 } }
+    const r = [
+      ...marcas('2026-09-14', '2026-09-15', '2026-09-16', '2026-09-17'),
+      ...marcas('2026-09-22', '2026-09-24'),
+    ]
+    expect(calcularRacha(gimAjustado, r, '2026-09-28').actual).toBe(2)
+    expect(calcularRacha(gimnasio, r, '2026-09-28').actual).toBe(0)
+  })
+})

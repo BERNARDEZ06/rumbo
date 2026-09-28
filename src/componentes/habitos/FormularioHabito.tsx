@@ -1,7 +1,7 @@
 import { Archive, ArchiveRestore, Minus, Plus, Trash2 } from 'lucide-react'
 import { useEffect, useState, type FormEvent } from 'react'
 import { borrarHabito, crearHabito, editarHabito, type DatosHabito } from '../../datos/habitos'
-import type { Habito, TipoHabito } from '../../datos/modelos'
+import type { Habito, PeriodoTiempo, TipoHabito } from '../../datos/modelos'
 import { hoy, textoDuracion } from '../../logica/fechas'
 import { COLORES, type NombreColor } from '../colores'
 import { Hoja } from '../Hoja'
@@ -12,6 +12,10 @@ const TIPOS: { valor: TipoHabito; nombre: string }[] = [
   { valor: 'diario', nombre: 'Cada día' },
   { valor: 'semanal', nombre: 'Días/semana' },
   { valor: 'tiempo', nombre: 'Por tiempo' },
+]
+const PERIODOS: { valor: PeriodoTiempo; nombre: string }[] = [
+  { valor: 'dia', nombre: 'Al día' },
+  { valor: 'semana', nombre: 'A la semana' },
 ]
 const META_POR_DEFECTO: Record<TipoHabito, number> = { diario: 1, semanal: 3, tiempo: 60 }
 
@@ -30,7 +34,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
 
   useEffect(() => {
     if (!abierta) return
-    setDatos(habito ? { nombre: habito.nombre, emoji: habito.emoji, color: habito.color, tipo: habito.tipo, meta: habito.meta } : VACIO)
+    setDatos(habito ? { nombre: habito.nombre, emoji: habito.emoji, color: habito.color, tipo: habito.tipo, meta: habito.meta, periodo: habito.periodo } : VACIO)
     setConfirmarBorrado(false)
   }, [abierta, habito])
 
@@ -45,9 +49,10 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
     onCerrar()
   }
 
-  const pasoMeta = datos.tipo === 'tiempo' ? 15 : 1
-  const minMeta = datos.tipo === 'tiempo' ? 15 : 1
-  const maxMeta = datos.tipo === 'tiempo' ? 720 : 7
+  const porSemana = datos.tipo === 'tiempo' && datos.periodo === 'semana'
+  const pasoMeta = datos.tipo === 'tiempo' ? (porSemana ? 60 : 15) : 1
+  const minMeta = datos.tipo === 'tiempo' ? pasoMeta : 1
+  const maxMeta = datos.tipo === 'tiempo' ? (porSemana ? 70 * 60 : 720) : 7
 
   return (
     <Hoja abierta={abierta} titulo={habito ? 'Editar hábito' : 'Nuevo hábito'} onCerrar={onCerrar}>
@@ -107,8 +112,18 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
             etiqueta="Tipo de objetivo"
             opciones={TIPOS}
             valor={datos.tipo}
-            onCambio={(tipo) => cambiar({ tipo, meta: habito?.tipo === tipo ? habito.meta : META_POR_DEFECTO[tipo] })}
+            onCambio={(tipo) => cambiar({ tipo, periodo: habito?.tipo === tipo ? habito.periodo : undefined, meta: habito?.tipo === tipo ? habito.meta : META_POR_DEFECTO[tipo] })}
           />
+          {datos.tipo === 'tiempo' && (
+            <Segmentado
+              etiqueta="Periodo"
+              opciones={PERIODOS}
+              valor={datos.periodo ?? 'dia'}
+              onCambio={(periodo) =>
+                cambiar({ periodo, meta: habito?.tipo === 'tiempo' && (habito.periodo ?? 'dia') === periodo ? habito.meta : periodo === 'semana' ? 600 : 60 })
+              }
+            />
+          )}
           {datos.tipo !== 'diario' && (
             <div className="mt-1 flex items-center justify-between rounded-2xl border border-borde px-3 py-2">
               <Boton
@@ -123,7 +138,7 @@ export function FormularioHabito({ abierta, onCerrar, habito }: Props) {
               <span className="text-center font-semibold" aria-live="polite">
                 {datos.tipo === 'semanal'
                   ? `${datos.meta} ${datos.meta === 1 ? 'día' : 'días'} por semana`
-                  : `${textoDuracion(datos.meta)} al día`}
+                  : `${textoDuracion(datos.meta)} ${porSemana ? 'por semana' : 'al día'}`}
               </span>
               <Boton
                 variante="fantasma"

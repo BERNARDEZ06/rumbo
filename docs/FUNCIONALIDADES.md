@@ -15,10 +15,11 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Tres tipos de objetivo:
   - **Diario**: cada día (ej. "leer").
   - **X veces por semana**: ej. "gimnasio 4 días/semana".
-  - **Por tiempo**: ej. "estudiar 2 h al día". Se apuntan minutos y la app muestra una barra de progreso.
+  - **Por tiempo**, al día o a la semana: ej. "estudiar 14 h por semana". Se apuntan las horas a mano y la app muestra una barra de progreso.
 - ✅ Marcar como hecho con un toque (o sumar minutos).
 - ✅ Racha: días seguidos para los hábitos diarios y semanas seguidas cumpliendo el objetivo para los semanales.
 - ✅ Progreso de la semana actual en cada hábito.
+- ✅ **Ajustar el objetivo de una semana concreta** (ej. 20 h de estudio en semana de exámenes, 2 días de gimnasio en una semana complicada). La semana siguiente vuelve al habitual. Una "semana libre" (0) no rompe la racha.
 
 ### Horario fijo (clases)
 - ⬜ Asignaturas con nombre y color.

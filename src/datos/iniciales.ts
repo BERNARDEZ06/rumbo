@@ -13,7 +13,8 @@ export async function cargarDatosIniciales(base: BaseDeDatos = db): Promise<void
     if ((await base.habitos.count()) === 0) {
       const dia = hoy()
       await crearHabito({ nombre: 'Gimnasio', emoji: '🏋️', color: 'emerald', tipo: 'semanal', meta: 4 }, dia, base)
-      await crearHabito({ nombre: 'Estudiar', emoji: '📚', color: 'indigo', tipo: 'tiempo', meta: 120 }, dia, base)
+      // 14 h por semana (unas 2 h al día), ajustable semana a semana.
+      await crearHabito({ nombre: 'Estudiar', emoji: '📚', color: 'indigo', tipo: 'tiempo', periodo: 'semana', meta: 840 }, dia, base)
     }
   }
 }

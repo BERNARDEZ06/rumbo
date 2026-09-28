@@ -1,8 +1,8 @@
 import { useLiveQuery } from 'dexie-react-hooks'
 import { db } from '../../datos/db'
 import { fijarMinutos, sumarMinutos } from '../../datos/habitos'
-import { hoy, textoDuracion, textoFechaLarga, type Dia } from '../../logica/fechas'
-import { idRegistro } from '../../logica/habitos'
+import { diasDeLaSemana, hoy, textoDuracion, textoFechaLarga, type Dia } from '../../logica/fechas'
+import { idRegistro, metaDeLaSemana } from '../../logica/habitos'
 import { color } from '../colores'
 import { Hoja } from '../Hoja'
 import { Boton } from '../ui'
@@ -29,9 +29,23 @@ export function ApuntarMinutos({ objetivo, onCerrar }: Props) {
     [objetivo?.habitoId, objetivo?.fecha],
   )
 
+  // En hábitos semanales se muestra el total de la semana frente a la meta de esa semana.
+  const semana = objetivo ? diasDeLaSemana(objetivo.fecha) : []
+  const minutosSemana = useLiveQuery(async () => {
+    if (!objetivo) return 0
+    const registros = await db.registros
+      .where('fecha')
+      .between(semana[0], semana[6], true, true)
+      .filter((r) => r.habitoId === objetivo.habitoId)
+      .toArray()
+    return registros.reduce((t, r) => t + (r.minutos ?? 0), 0)
+  }, [objetivo?.habitoId, semana[0]])
+
   const minutos = registro?.minutos ?? 0
-  const meta = habito?.meta ?? 60
-  const porcentaje = Math.min(100, Math.round((minutos / meta) * 100))
+  const semanal = habito?.periodo === 'semana'
+  const meta = habito && objetivo ? (semanal ? metaDeLaSemana(habito, objetivo.fecha) : habito.meta) : 60
+  const hecho = semanal ? (minutosSemana ?? 0) : minutos
+  const porcentaje = meta > 0 ? Math.min(100, Math.round((hecho / meta) * 100)) : 100
   const c = color(habito?.color ?? 'indigo')
   const esHoy = objetivo?.fecha === hoy()
 
@@ -43,8 +57,14 @@ export function ApuntarMinutos({ objetivo, onCerrar }: Props) {
             <p className="text-sm text-texto-suave first-letter:uppercase">{esHoy ? 'Hoy' : textoFechaLarga(objetivo.fecha)}</p>
             <p className="mt-1 text-3xl font-bold tracking-tight" aria-live="polite">
               {textoDuracion(minutos)}
-              <span className="text-lg font-medium text-texto-suave"> / {textoDuracion(meta)}</span>
+              {!semanal && <span className="text-lg font-medium text-texto-suave"> / {textoDuracion(meta)}</span>}
             </p>
+            {semanal && (
+              <p className="mt-3 text-sm text-texto-suave">
+                Esta semana: <span className="font-semibold text-texto">{textoDuracion(hecho)}</span>
+                {meta > 0 ? ` de ${textoDuracion(meta)}` : ' · semana libre'}
+              </p>
+            )}
             <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-superficie-2">
               <div className={`h-full rounded-full ${c.solido} transition-all`} style={{ width: `${porcentaje}%` }} />
             </div>

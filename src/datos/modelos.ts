@@ -15,15 +15,21 @@ export interface Base {
 export type TipoHabito =
   | 'diario' // cada día
   | 'semanal' // X veces por semana (meta = veces)
-  | 'tiempo' // minutos al día (meta = minutos)
+  | 'tiempo' // minutos al día o a la semana (meta = minutos)
+
+export type PeriodoTiempo = 'dia' | 'semana'
 
 export interface Habito extends Base {
   nombre: string
   emoji: string
   color: string
   tipo: TipoHabito
-  /** diario: 1 · semanal: veces por semana · tiempo: minutos por día */
+  /** Solo en hábitos de tiempo: la meta es por día (por defecto) o por semana. */
+  periodo?: PeriodoTiempo
+  /** diario: 1 · semanal: veces por semana · tiempo: minutos por día o por semana */
   meta: number
+  /** Metas cambiadas para una semana concreta: { lunes de la semana: meta }. 0 = semana libre. */
+  ajustesSemana?: Record<Dia, number>
   orden: number
   archivado: boolean
   creado: Dia

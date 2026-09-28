@@ -14,6 +14,7 @@ _Última actualización: 2026-09-28_
 - ✅ Tarea 1: diseño base (colores, modo claro/oscuro/automático, tipografía), menú de 5 secciones (barra inferior en móvil, lateral en ordenador), botón "+" con menú de añadir (opciones aún desactivadas), pantallas vacías y selector de tema en Ajustes. 12 pruebas en navegador + 4 de lógica.
 - ✅ Tarea 2: base de datos en el dispositivo (Dexie, 11 tablas, preparada para sincronizar) y lógica de fechas (semanas de lunes a domingo, cuadrícula del mes, textos en español, cuenta atrás, cambio de hora). 18 pruebas nuevas.
 - ✅ Tarea 3: hábitos. Tres tipos (cada día, X días/semana, por tiempo); crear, editar, archivar y borrar; marcar hoy con un toque o corregir cualquier día de la semana; apuntar horas a mano (+15m…+2h) también desde el botón "+"; racha actual y mejor racha; progreso semanal. Gimnasio (4 días/semana) y Estudiar (2 h/día) se crean solos la primera vez. 19 pruebas de lógica/datos nuevas + 5 en navegador.
+- ✅ Mejora pedida por el usuario: Estudiar pasa a ser **14 h por semana** (en lugar de 2 h al día) y cualquier hábito semanal puede **ajustarse solo para una semana** ("Ajustar esta semana"), incluida la "semana libre" que no rompe la racha.
 
 ## En curso
 - 🔄 Nada.

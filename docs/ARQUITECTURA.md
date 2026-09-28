@@ -24,7 +24,7 @@ Las pruebas de la lógica van junto a cada archivo (`racha.ts` → `racha.test.t
 ## Datos que guarda la app
 | Tabla | Qué contiene |
 |---|---|
-| `habitos` | Cada hábito: nombre, color, tipo de objetivo (diario, veces por semana o por tiempo) y meta |
+| `habitos` | Cada hábito: nombre, color, tipo de objetivo (diario, veces por semana o por tiempo) y meta; en los de tiempo, si es al día o a la semana; y los ajustes de semanas concretas |
 | `registros` | Cada vez que marcas un hábito: qué hábito, qué día y cuántos minutos (uno por hábito y día; id = `hábito|día`) |
 | `asignaturas` | Nombre y color de cada asignatura |
 | `horario` | Bloques fijos semanales: día de la semana, hora de inicio y de fin, y asignatura |

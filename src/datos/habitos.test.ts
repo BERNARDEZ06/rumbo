@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { BaseDeDatos } from './db'
-import { alternarDia, borrarHabito, crearHabito, fijarMinutos, sumarMinutos } from './habitos'
+import { ajustarMetaSemana, alternarDia, borrarHabito, crearHabito, fijarMinutos, sumarMinutos } from './habitos'
 
 let base: BaseDeDatos
 beforeEach(() => {
@@ -54,5 +54,18 @@ describe('operaciones con hábitos', () => {
     await borrarHabito(h.id, base)
     expect(await base.habitos.count()).toBe(1)
     expect(await base.registros.count()).toBe(1)
+  })
+})
+
+describe('ajustar la meta de una semana', () => {
+  it('guarda el ajuste por semana y lo quita al volver a la habitual', async () => {
+    const h = await crearHabito({ ...estudiar, periodo: 'semana', meta: 840 }, '2026-09-28', base)
+    await ajustarMetaSemana(h.id, '2026-10-01', 1200, base) // jueves → semana del lunes 28
+    expect((await base.habitos.get(h.id))!.ajustesSemana).toEqual({ '2026-09-28': 1200 })
+    await ajustarMetaSemana(h.id, '2026-10-06', 0, base)
+    expect((await base.habitos.get(h.id))!.ajustesSemana).toEqual({ '2026-09-28': 1200, '2026-10-05': 0 })
+    await ajustarMetaSemana(h.id, '2026-09-28', null, base)
+    await ajustarMetaSemana(h.id, '2026-10-05', 840, base) // igual a la habitual = sin ajuste
+    expect((await base.habitos.get(h.id))!.ajustesSemana).toEqual({})
   })
 })

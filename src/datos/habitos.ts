@@ -1,9 +1,9 @@
+import { lunesDe, type Dia } from '../logica/fechas'
 import { idRegistro } from '../logica/habitos'
-import type { Dia } from '../logica/fechas'
 import { borrar, db, guardar, modificar, type BaseDeDatos } from './db'
 import type { Habito } from './modelos'
 
-export type DatosHabito = Pick<Habito, 'nombre' | 'emoji' | 'color' | 'tipo' | 'meta'>
+export type DatosHabito = Pick<Habito, 'nombre' | 'emoji' | 'color' | 'tipo' | 'meta' | 'periodo'>
 
 export async function crearHabito(datos: DatosHabito, hoy: Dia, base: BaseDeDatos = db): Promise<Habito> {
   const ultimo = await base.habitos.orderBy('orden').last()
@@ -48,4 +48,18 @@ export async function sumarMinutos(habitoId: string, fecha: Dia, minutos: number
   const total = Math.max(0, actual + minutos)
   await fijarMinutos(habitoId, fecha, total, base)
   return total
+}
+
+/**
+ * Cambia la meta solo para la semana de ese día (ej. 20 h en semana de exámenes).
+ * Con null se vuelve a la meta habitual.
+ */
+export async function ajustarMetaSemana(habitoId: string, dia: Dia, meta: number | null, base: BaseDeDatos = db): Promise<void> {
+  const habito = await base.habitos.get(habitoId)
+  if (!habito) return
+  const ajustes = { ...(habito.ajustesSemana ?? {}) }
+  const lunes = lunesDe(dia)
+  if (meta === null || meta === habito.meta) delete ajustes[lunes]
+  else ajustes[lunes] = Math.max(0, Math.round(meta))
+  await modificar('habitos', habitoId, { ajustesSemana: ajustes }, base)
 }

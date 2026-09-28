@@ -27,3 +27,5 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 21 | 2026-09-28 | **Una marca por hábito y día, con id fijo** (`hábito|día`) | Evita marcas duplicadas (también al sincronizar) y simplifica "marcar/desmarcar". |
 | 22 | 2026-09-28 | **Racha viva hasta el final del día** | Si hoy aún no has marcado, la racha sigue contando desde ayer; así no ves "0" cada mañana. En los semanales, la semana en curso suma en cuanto se cumple. |
 | 23 | 2026-09-28 | **Gimnasio y Estudiar se crean solos la primera vez** | Menos fricción: la app ya sale con los objetivos del usuario. Si los borra, no vuelven. |
+| 24 | 2026-09-28 | **Estudio medido por semana (14 h) y ajustable semana a semana** | Petición del usuario: hay semanas de más y de menos estudio. Medirlo por semana permite compensar días y ajustar la meta solo de esa semana sin tocar la habitual. |
+| 25 | 2026-09-28 | **"Semana libre" (meta 0) no rompe la racha** | Vacaciones o semanas imposibles no deberían castigar; así la racha sigue siendo motivadora. |

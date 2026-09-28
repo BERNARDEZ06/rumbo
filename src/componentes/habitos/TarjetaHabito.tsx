@@ -1,10 +1,12 @@
-import { Check, Flame, Plus } from 'lucide-react'
+import { Check, Flame, Plus, SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
 import { alternarDia } from '../../datos/habitos'
 import type { Habito, Registro } from '../../datos/modelos'
 import { INICIALES_DIAS, textoDuracion, type Dia } from '../../logica/fechas'
-import { calcularRacha, minutosDelDia, progresoSemana, textoMeta, textoRacha } from '../../logica/habitos'
+import { calcularRacha, esDeSemana, minutosDelDia, progresoSemana, textoMeta, textoRacha } from '../../logica/habitos'
 import { useAcciones } from '../acciones'
 import { color } from '../colores'
+import { AjustarSemana } from './AjustarSemana'
 
 interface Props {
   habito: Habito
@@ -14,20 +16,32 @@ interface Props {
   onEditar: () => void
 }
 
+/** "1.5h", "2h", "45m" para dentro de los círculos. */
+function horasCortas(minutos: number): string {
+  if (minutos < 60) return `${minutos}m`
+  return `${Math.round(minutos / 6) / 10}h`
+}
+
 export function TarjetaHabito({ habito, registros, hoy, onEditar }: Props) {
   const { apuntarMinutos } = useAcciones()
+  const [ajustando, setAjustando] = useState(false)
   const c = color(habito.color)
   const semana = progresoSemana(habito, registros, hoy)
   const racha = calcularRacha(habito, registros, hoy)
   const esTiempo = habito.tipo === 'tiempo'
+  const tiempoSemanal = esTiempo && habito.periodo === 'semana'
   const minutosHoy = minutosDelDia(registros, hoy)
   const hechoHoy = semana.dias.find((d) => d.fecha === hoy)?.cumplido ?? false
 
   const tocarDia = (fecha: Dia) => (esTiempo ? apuntarMinutos(habito.id, fecha) : alternarDia(habito.id, fecha))
 
-  const resumenSemana = esTiempo
-    ? `${textoDuracion(semana.minutos)} esta semana`
-    : `${semana.hechos}/${semana.objetivo} esta semana`
+  let resumenSemana: string
+  if (esDeSemana(habito) && semana.objetivo === 0) resumenSemana = 'Semana libre'
+  else if (tiempoSemanal) resumenSemana = `${textoDuracion(semana.minutos)} de ${textoDuracion(semana.objetivo)} esta semana`
+  else if (esTiempo) resumenSemana = `${textoDuracion(semana.minutos)} esta semana`
+  else resumenSemana = `${semana.hechos}/${semana.objetivo} esta semana`
+
+  const porcentajeSemana = tiempoSemanal && semana.objetivo > 0 ? Math.min(100, (semana.minutos / semana.objetivo) * 100) : 0
 
   return (
     <article className="rounded-3xl border border-borde bg-superficie p-4">
@@ -89,21 +103,44 @@ export function TarjetaHabito({ habito, registros, hoy, onEditar }: Props) {
                   d.cumplido ? `${c.solido} text-white` : parcial ? `${c.suave} ${c.texto}` : 'bg-superficie-2'
                 } ${d.fecha === hoy ? 'ring-2 ring-texto/20 ring-offset-2 ring-offset-superficie' : ''}`}
               >
-                {d.cumplido ? <Check className="size-4" strokeWidth={3} /> : parcial ? Math.round(d.minutos / 6) / 10 + 'h' : ''}
+                {esTiempo && d.minutos > 0 ? horasCortas(d.minutos) : d.cumplido ? <Check className="size-4" strokeWidth={3} /> : ''}
               </span>
             </button>
           )
         })}
       </div>
 
-      <div className="mt-3 flex items-center justify-between text-sm">
-        <span className="text-texto-suave">{resumenSemana}</span>
+      {tiempoSemanal && semana.objetivo > 0 && (
+        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-superficie-2" aria-hidden>
+          <div className={`h-full rounded-full ${c.solido} transition-all`} style={{ width: `${porcentajeSemana}%` }} />
+        </div>
+      )}
+
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-sm">
+        <span className="flex items-center gap-1.5 text-texto-suave">
+          {resumenSemana}
+          {semana.cumplida && semana.objetivo > 0 && <Check className={`size-4 ${c.texto}`} strokeWidth={3} aria-label="cumplido" />}
+        </span>
         <span className={`flex items-center gap-1 font-medium ${racha.actual > 0 ? 'text-orange-500' : 'text-texto-suave'}`}>
           <Flame className="size-4" />
           {textoRacha(racha.actual, racha.unidad)}
           {racha.mejor > racha.actual && <span className="font-normal text-texto-suave">· mejor {racha.mejor}</span>}
         </span>
       </div>
+
+      {esDeSemana(habito) && (
+        <>
+          <button
+            type="button"
+            onClick={() => setAjustando(true)}
+            className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl border border-dashed border-borde py-2 text-sm font-medium text-texto-suave transition hover:bg-superficie-2 hover:text-texto"
+          >
+            <SlidersHorizontal className="size-4" />
+            {semana.ajustada ? 'Objetivo ajustado esta semana · cambiar' : 'Ajustar esta semana'}
+          </button>
+          <AjustarSemana habito={habito} dia={hoy} abierta={ajustando} onCerrar={() => setAjustando(false)} />
+        </>
+      )}
     </article>
   )
 }

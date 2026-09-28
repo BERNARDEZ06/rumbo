@@ -6,7 +6,7 @@ App personal de hábitos, agenda semanal y tareas de estudio. Nombre provisional
 
 ## Sobre el usuario
 - No sabe programar: yo tomo las decisiones técnicas y se las explico.
-- Estudia ADE + Business Analytics. Tiene clases principalmente de lunes a viernes de 15:00 a 21:00, más alguna clase de mañana (ver `docs/HORARIO.md`). Sus objetivos son ir al gimnasio 4 días por semana y estudiar 2 horas al día.
+- Estudia ADE + Business Analytics. Tiene clases principalmente de lunes a viernes de 15:00 a 21:00, más alguna clase de mañana (ver `docs/HORARIO.md`). Sus objetivos son ir al gimnasio 4 días por semana y estudiar 14 h por semana (unas 2 h al día), ajustable semana a semana.
 - Usa **iPhone** (y ordenador). La semana va de lunes a domingo.
 - Todo (app, textos, documentos y explicaciones) va **en español**.
 

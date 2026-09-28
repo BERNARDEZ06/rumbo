@@ -9,7 +9,7 @@ test('la primera vez aparecen Gimnasio y Estudiar', async ({ page }) => {
   await expect(page.getByText('Gimnasio', { exact: true })).toBeVisible()
   await expect(page.getByText('4 días por semana')).toBeVisible()
   await expect(page.getByText('Estudiar', { exact: true })).toBeVisible()
-  await expect(page.getByText('2 h al día')).toBeVisible()
+  await expect(page.getByText('14 h por semana', { exact: true })).toBeVisible()
 })
 
 test('marcar el gimnasio hoy y desmarcarlo', async ({ page }) => {
@@ -22,18 +22,45 @@ test('marcar el gimnasio hoy y desmarcarlo', async ({ page }) => {
   await expect(tarjeta.getByText('0/4 esta semana')).toBeVisible()
 })
 
-test('apuntar horas de estudio hasta cumplir las 2 h', async ({ page }) => {
+test('apuntar horas de estudio y ver el total de la semana', async ({ page }) => {
   const tarjeta = page.getByRole('article').filter({ hasText: 'Estudiar' })
   await tarjeta.getByRole('button', { name: 'Apuntar tiempo de Estudiar' }).click()
   const hoja = page.getByRole('dialog')
   await hoja.getByRole('button', { name: '+1h', exact: true }).click()
   await hoja.getByRole('button', { name: '+30m' }).click()
-  await expect(hoja).toContainText('1 h 30 min / 2 h')
-  await hoja.getByRole('button', { name: '+30m' }).click()
-  await expect(hoja).toContainText('2 h / 2 h')
+  await expect(hoja).toContainText('Esta semana: 1 h 30 min de 14 h')
   await hoja.getByRole('button', { name: 'Hecho' }).click()
-  await expect(tarjeta.getByText('1 día')).toBeVisible() // racha
-  await expect(tarjeta.getByText('2 h esta semana')).toBeVisible()
+  await expect(tarjeta.getByText('1 h 30 min de 14 h esta semana')).toBeVisible()
+  await expect(tarjeta.getByRole('button', { name: 'Apuntar tiempo de Estudiar' })).toContainText('1 h 30 min')
+})
+
+test('ajustar las horas de estudio solo para esta semana', async ({ page }) => {
+  const tarjeta = page.getByRole('article').filter({ hasText: 'Estudiar' })
+  await tarjeta.getByRole('button', { name: 'Ajustar esta semana' }).click()
+  const hoja = page.getByRole('dialog', { name: 'Objetivo de esta semana' })
+  await expect(hoja).toContainText('14 h')
+  await hoja.getByRole('button', { name: 'Más' }).click()
+  await hoja.getByRole('button', { name: 'Más' }).click()
+  await expect(hoja).toContainText('16 h')
+  await hoja.getByRole('button', { name: 'Guardar' }).click()
+  await expect(tarjeta.getByText('0 min de 16 h esta semana')).toBeVisible()
+  await expect(tarjeta.getByText('14 h por semana', { exact: true })).toBeVisible() // el habitual no cambia
+
+  await tarjeta.getByRole('button', { name: /Objetivo ajustado/ }).click()
+  await page.getByRole('dialog').getByRole('button', { name: 'Usar habitual' }).click()
+  await expect(tarjeta.getByText('0 min de 14 h esta semana')).toBeVisible()
+})
+
+test('una semana con menos días de gimnasio mantiene la racha', async ({ page }) => {
+  const tarjeta = page.getByRole('article').filter({ hasText: 'Gimnasio' })
+  await tarjeta.getByRole('button', { name: 'Ajustar esta semana' }).click()
+  const hoja = page.getByRole('dialog', { name: 'Objetivo de esta semana' })
+  for (let i = 0; i < 3; i++) await hoja.getByRole('button', { name: 'Menos' }).click()
+  await expect(hoja).toContainText('1 día')
+  await hoja.getByRole('button', { name: 'Guardar' }).click()
+  await tarjeta.getByRole('button', { name: 'Marcar Gimnasio hoy' }).click()
+  await expect(tarjeta.getByText('1/1 esta semana')).toBeVisible()
+  await expect(tarjeta.getByText('1 semana')).toBeVisible()
 })
 
 test('crear, marcar y archivar un hábito nuevo', async ({ page }) => {
