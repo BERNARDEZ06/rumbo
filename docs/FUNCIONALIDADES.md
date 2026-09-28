@@ -58,6 +58,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ Publicada gratis en una dirección web.
 
 ## Fase 2: mejoras
+- ⬜ **Sincronización entre móvil y ordenador**, gratis, usando un archivo privado en la cuenta de GitHub del usuario. Lo que se apunta en un dispositivo aparece en el otro.
 - ⬜ **Resumen semanal**: qué se ha cumplido y qué no (hábitos y tareas), visible cualquier día y destacado el domingo por la noche y el lunes por la mañana.
 - ⬜ **Recordatorios en el calendario del iPhone**: exportar los exámenes y las entregas como eventos (archivo `.ics`) con aviso previo. Así avisa el propio iPhone, sin coste.
 - ⬜ Estadísticas de los hábitos: historial de las últimas semanas y porcentaje de cumplimiento.

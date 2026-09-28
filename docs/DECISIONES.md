@@ -20,3 +20,7 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 14 | 2026-09-28 | **Tema guardado en el navegador (localStorage)**, no en la base de datos | Hay que saberlo antes de pintar la pantalla para evitar un destello blanco al abrir en modo oscuro. |
 | 15 | 2026-09-28 | **Navegación con `#/` (HashRouter)** | GitHub Pages no sabe redirigir direcciones internas; con `#/` cualquier enlace funciona siempre. |
 | 16 | 2026-09-28 | **Color principal índigo y tipografía Inter incluida** | Aspecto moderno y sobrio; la fuente va dentro de la app para que funcione sin conexión. |
+| 17 | 2026-09-28 | **Sincronización futura con GitHub (archivo privado)**, en la Fase 2 | Es gratis para siempre, los datos quedan en la cuenta del usuario y no depende de servicios con límites o que puedan cobrar (Firebase, Supabase…). |
+| 18 | 2026-09-28 | **Ids aleatorios, fecha de último cambio y registro de borrados** en todos los datos | Preparan la sincronización: permiten saber qué versión es más nueva y qué se borró en otro dispositivo. |
+| 19 | 2026-09-28 | **La asistencia se guarda solo como excepción** | Como por defecto se asume que se fue a clase, basta con guardar las faltas (o cambios); menos datos y menos toques. |
+| 20 | 2026-09-28 | **El horario semanal tiene fechas de inicio y fin** | Las clases solo aparecen durante el cuatrimestre; en el siguiente se carga otro horario. |

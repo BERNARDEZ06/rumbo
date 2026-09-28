@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 y 1 terminadas; siguiente: tarea 2 (base de datos y lógica de fechas).
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0, 1 y 2 terminadas; siguiente: tarea 3 (hábitos).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -12,6 +12,7 @@ _Última actualización: 2026-09-28_
 - ✅ Plan ajustado: sección Calendario (mes + semana), asistencia a clase, botón "+" y cuenta atrás de exámenes.
 - ✅ Tarea 0: Node.js 24 instalado; proyecto base con Vite 8, React 19, TypeScript 7, Tailwind 4 y Vitest 5. Compila, pasa las pruebas y se abre en el navegador.
 - ✅ Tarea 1: diseño base (colores, modo claro/oscuro/automático, tipografía), menú de 5 secciones (barra inferior en móvil, lateral en ordenador), botón "+" con menú de añadir (opciones aún desactivadas), pantallas vacías y selector de tema en Ajustes. 12 pruebas en navegador + 4 de lógica.
+- ✅ Tarea 2: base de datos en el dispositivo (Dexie, 11 tablas, preparada para sincronizar) y lógica de fechas (semanas de lunes a domingo, cuadrícula del mes, textos en español, cuenta atrás, cambio de hora). 18 pruebas nuevas.
 
 ## En curso
 - 🔄 Nada.
@@ -21,7 +22,7 @@ _Última actualización: 2026-09-28_
 |---|---|---|
 | 0 | Instalar Node.js en el ordenador y crear el proyecto base (Vite, React, TypeScript, Tailwind y pruebas) | ✅ |
 | 1 | Diseño base: colores, modo oscuro, navegación (barra inferior en móvil y menú lateral en ordenador) y botón "+" | ✅ |
-| 2 | Base de datos en el dispositivo y lógica de fechas y semanas (con pruebas) | ⬜ |
+| 2 | Base de datos en el dispositivo y lógica de fechas y semanas (con pruebas) | ✅ |
 | 3 | Hábitos: crear, editar, marcar, rachas y progreso semanal (con pruebas) | ⬜ |
 | 4 | Asignaturas, horario semanal, clases puntuales, festivos + carga de tus datos reales | ⬜ |
 | 5 | Tareas: exámenes, entregas y repasos, con fechas y filtros | ⬜ |
@@ -32,6 +33,7 @@ _Última actualización: 2026-09-28_
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
+- Decidir si quiere la sincronización entre móvil y ordenador ya en la Fase 1 (recomendación: Fase 2).
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 
 ## Notas técnicas para la próxima sesión

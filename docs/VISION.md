@@ -20,5 +20,5 @@ Para un único usuario: estudiante de ADE + Business Analytics, con clases de lu
 6. **Instalable.** Se añade a la pantalla de inicio del iPhone y funciona como una app, también sin conexión.
 
 ## Qué NO es (por ahora)
-- No es una app para compartir con otras personas ni para sincronizar entre dispositivos de forma automática. Para pasar los datos de un dispositivo a otro se usa la copia de seguridad.
+- No es una app para compartir con otras personas. La sincronización entre el móvil y el ordenador llegará en la Fase 2; mientras tanto, el móvil es el dispositivo principal y la copia de seguridad sirve para pasar datos.
 - No es una app de notas largas ni de apuntes.
