@@ -96,3 +96,16 @@ describe('exámenes y entregas iniciales', () => {
     expect(tareas.find((t) => t.titulo === 'Bloomberg')?.asignaturaId).toBeUndefined()
   })
 })
+
+describe('identificadores fijos', () => {
+  it('dos dispositivos crean los mismos identificadores (así al sincronizar no se duplica nada)', async () => {
+    const otra = new BaseDeDatos(`prueba-${crypto.randomUUID()}`)
+    await cargarDatosIniciales(base)
+    await cargarDatosIniciales(otra)
+    for (const t of ['habitos', 'asignaturas', 'horario', 'clasesPuntuales', 'festivos', 'tareas'] as const) {
+      const ids = async (b: BaseDeDatos) => ((await b.table(t).toCollection().primaryKeys()) as string[]).sort()
+      expect(await ids(otra), t).toEqual(await ids(base))
+    }
+    await otra.delete()
+  })
+})

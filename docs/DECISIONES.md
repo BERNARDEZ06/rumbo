@@ -20,7 +20,7 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 14 | 2026-09-28 | **Tema guardado en el navegador (localStorage)**, no en la base de datos | Hay que saberlo antes de pintar la pantalla para evitar un destello blanco al abrir en modo oscuro. |
 | 15 | 2026-09-28 | **Navegación con `#/` (HashRouter)** | GitHub Pages no sabe redirigir direcciones internas; con `#/` cualquier enlace funciona siempre. |
 | 16 | 2026-09-28 | **Color principal índigo y tipografía Inter incluida** | Aspecto moderno y sobrio; la fuente va dentro de la app para que funcione sin conexión. |
-| 17 | 2026-09-28 | **Sincronización futura con GitHub (archivo privado)**, en la Fase 2 | Es gratis para siempre, los datos quedan en la cuenta del usuario y no depende de servicios con límites o que puedan cobrar (Firebase, Supabase…). |
+| 17 | 2026-09-28 | **Sincronización futura con GitHub** (ver n.º 47), en la Fase 2 | Es gratis para siempre, los datos quedan en la cuenta del usuario y no depende de servicios con límites o que puedan cobrar (Firebase, Supabase…). |
 | 18 | 2026-09-28 | **Ids aleatorios, fecha de último cambio y registro de borrados** en todos los datos | Preparan la sincronización: permiten saber qué versión es más nueva y qué se borró en otro dispositivo. |
 | 19 | 2026-09-28 | **La asistencia se guarda solo como excepción** | Como por defecto se asume que se fue a clase, basta con guardar las faltas (o cambios); menos datos y menos toques. |
 | 20 | 2026-09-28 | **El horario semanal se repite entre dos fechas (el cuatrimestre)**, guardadas una sola vez en ajustes | Las clases solo aparecen durante el cuatrimestre. Se edita en Ajustes → Clases. Por ahora hay un único horario; el cambio de cuatrimestre se tratará más adelante. |
@@ -50,3 +50,8 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 44 | 2026-09-29 | **Repositorio `BERNARDEZ06/rumbo`, público** | GitHub Pages es gratis con repositorios públicos. El código es visible; los datos del usuario no (están solo en su dispositivo). |
 | 45 | 2026-09-29 | **Revisión automática de accesibilidad (axe) en las pruebas** | Garantiza contraste suficiente y botones con nombre en todas las pantallas; el gris secundario se oscureció a #566174 para cumplirlo. |
 | 46 | 2026-09-29 | **Fase 2 empieza por la sincronización** | Es lo que más le importa al usuario ahora mismo (usar móvil y ordenador a la vez). |
+| 47 | 2026-09-29 | **Sincronización con un repositorio privado (no un Gist)** y clave "fine-grained" limitada a ese repositorio | Los Gists "secretos" los puede ver cualquiera con el enlace; un repositorio privado no. La clave solo sirve para ese repositorio (Contents: lectura y escritura). |
+| 48 | 2026-09-29 | **Fusión registro a registro: gana el cambio más reciente; los borrados se guardan con su hora** | Sin servidor y sin perder cambios hechos en distintos dispositivos. Es simétrica: el resultado es el mismo lo junte quien lo junte. |
+| 49 | 2026-09-29 | **Datos iniciales con identificadores fijos** (`ini-…`) | Si dos dispositivos cargan los datos iniciales, al juntarse no se duplican asignaturas, hábitos ni exámenes. |
+| 50 | 2026-09-29 | **Primera conexión de un dispositivo: "Usar los de GitHub" (recomendado) o "Juntar"** | Evita que un dispositivo recién estrenado "resucite" cosas borradas en el otro. |
+| 51 | 2026-09-29 | **La clave de GitHub se guarda solo en el dispositivo**, nunca se sube ni va en las copias | Es lo único sensible; así solo existe donde se usa. |

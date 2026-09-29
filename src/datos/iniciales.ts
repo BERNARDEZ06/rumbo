@@ -1,6 +1,6 @@
 import { diaDeLaSemana, hoy } from '../logica/fechas'
 import { guardarPeriodo } from './clases'
-import { db, guardar, guardarAjuste, leerAjuste, nuevoId, type BaseDeDatos } from './db'
+import { db, guardar, guardarAjuste, leerAjuste, type BaseDeDatos } from './db'
 import { crearHabito } from './habitos'
 
 /**
@@ -23,9 +23,9 @@ async function unaVez(clave: string, base: BaseDeDatos, cargar: () => Promise<vo
 async function cargarHabitos(base: BaseDeDatos) {
   if ((await base.habitos.count()) > 0) return
   const dia = hoy()
-  await crearHabito({ nombre: 'Gimnasio', emoji: '🏋️', color: 'emerald', tipo: 'semanal', meta: 4 }, dia, base)
+  await crearHabito({ id: 'ini-habito-gimnasio', nombre: 'Gimnasio', emoji: '🏋️', color: 'emerald', tipo: 'semanal', meta: 4 }, dia, base)
   // 14 h por semana (unas 2 h al día), ajustable semana a semana.
-  await crearHabito({ nombre: 'Estudiar', emoji: '📚', color: 'indigo', tipo: 'tiempo', periodo: 'semana', meta: 840 }, dia, base)
+  await crearHabito({ id: 'ini-habito-estudiar', nombre: 'Estudiar', emoji: '📚', color: 'indigo', tipo: 'tiempo', periodo: 'semana', meta: 840 }, dia, base)
 }
 
 /* ---------- Horario real: 2.º E2A+BA, ICADE, 1.er cuatrimestre 2026/2027 (ver docs/HORARIO.md) ---------- */
@@ -89,16 +89,16 @@ async function cargarHorario(base: BaseDeDatos) {
 
   const ids = {} as Record<Clave, string>
   for (const [clave, datos] of Object.entries(ASIGNATURAS) as [Clave, (typeof ASIGNATURAS)[Clave]][]) {
-    ids[clave] = nuevoId()
+    ids[clave] = `ini-asig-${clave}`
     await guardar('asignaturas', { id: ids[clave], ...datos }, base)
   }
 
   for (const [diaSemana, inicio, fin, clave, aula] of SEMANAL) {
-    await guardar('horario', { asignaturaId: ids[clave], diaSemana, inicio, fin, aula }, base)
+    await guardar('horario', { id: `ini-horario-${diaSemana}-${inicio}`, asignaturaId: ids[clave], diaSemana, inicio, fin, aula }, base)
   }
 
   for (const fecha of COMUNICACION) {
-    await guardar('clasesPuntuales', { asignaturaId: ids.comunicacion, fecha, inicio: '12:00', fin: '13:30', aula: 'O-206', detalle: 'Grupo 1' }, base)
+    await guardar('clasesPuntuales', { id: `ini-comunicacion-${fecha}`, asignaturaId: ids.comunicacion, fecha, inicio: '12:00', fin: '13:30', aula: 'O-206', detalle: 'Grupo 1' }, base)
   }
 
   for (const [fecha] of PRACTICAS) {
@@ -106,6 +106,7 @@ async function cargarHorario(base: BaseDeDatos) {
     await guardar(
       'clasesPuntuales',
       {
+        id: `ini-practica-${fecha}`,
         asignaturaId: ids.estadistica,
         fecha,
         inicio: esLunes ? '12:30' : '15:00',
@@ -117,7 +118,7 @@ async function cargarHorario(base: BaseDeDatos) {
     )
   }
 
-  for (const [fecha, nombre] of FESTIVOS) await guardar('festivos', { fecha, nombre }, base)
+  for (const [fecha, nombre] of FESTIVOS) await guardar('festivos', { id: `ini-festivo-${fecha}`, fecha, nombre }, base)
 
   // Clases del 7 sep al 8 dic (confirmado por el usuario); se puede cambiar en Ajustes → Clases.
   await guardarPeriodo({ desde: '2026-09-07', hasta: '2026-12-08' }, base)
@@ -145,6 +146,6 @@ async function cargarTareas(base: BaseDeDatos) {
   const creado = Date.now()
   for (const [fecha, tipo, titulo, corto] of TAREAS) {
     const asignaturaId = corto ? asignaturas.find((a) => a.corto === corto)?.id : undefined
-    await guardar('tareas', { titulo, tipo, fecha, asignaturaId, hecha: 0, creado }, base)
+    await guardar('tareas', { id: `ini-tarea-${fecha}-${tipo}-${titulo.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`, titulo, tipo, fecha, asignaturaId, hecha: 0, creado }, base)
   }
 }

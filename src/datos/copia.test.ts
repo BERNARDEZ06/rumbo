@@ -72,3 +72,17 @@ describe('archivos que no son copias', () => {
     expect(nombreArchivo(new Date(2026, 8, 29))).toBe('rumbo-copia-2026-09-29.json')
   })
 })
+
+describe('ajustes propios del dispositivo', () => {
+  it('la clave de GitHub nunca va en la copia y sobrevive a recuperar una copia', async () => {
+    await guardar('eventos', { titulo: 'Evento', fecha: '2026-10-01' }, origen)
+    await origen.ajustes.put({ clave: 'sync.config', valor: { token: 'secreto' } })
+    const copia = await crearCopia(origen)
+    expect(JSON.stringify(copia)).not.toContain('secreto')
+
+    await destino.ajustes.put({ clave: 'sync.config', valor: { token: 'del-destino' } })
+    await restaurarCopia(copia, destino)
+    expect((await destino.ajustes.get('sync.config'))?.valor).toEqual({ token: 'del-destino' })
+    expect(await destino.eventos.count()).toBe(1)
+  })
+})

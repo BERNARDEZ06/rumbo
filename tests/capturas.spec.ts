@@ -60,6 +60,12 @@ for (const tema of ['claro', 'oscuro'] as const) {
     await foto('nueva-clase')
     await page.keyboard.press('Escape')
 
+    await page.goto('/#/ajustes')
+    await page.getByRole('region', { name: 'Sincronización' }).getByRole('button', { name: 'Configurar' }).click()
+    await page.waitForTimeout(300)
+    await foto('conectar-github')
+    await page.keyboard.press('Escape')
+
     await page.getByRole('button', { name: 'Añadir', exact: true }).filter({ visible: true }).click()
     await page.waitForTimeout(300)
     await foto('anadir')

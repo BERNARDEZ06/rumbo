@@ -72,3 +72,10 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `vite.config.ts` (plugin PWA): ficha de la app (`manifest.webmanifest`) e iconos; el "service worker" (`sw.js`) guarda la app en el dispositivo.
 - `.github/workflows/publicar.yml`: al subir cambios a `main`, GitHub instala, pasa las pruebas, construye y publica `dist/` en GitHub Pages.
 - Dirección: https://bernardez06.github.io/rumbo/
+
+## Sincronización (Fase 2)
+- `datos/sincronizacion/fusion.ts`: junta dos versiones de los datos (función pura, muy probada).
+- `datos/sincronizacion/github.ts`: lee y guarda `rumbo-datos.json` en el repositorio privado con la API de GitHub (con la versión `sha` para no pisar cambios de otro dispositivo).
+- `datos/sincronizacion/motor.ts`: cuándo sincronizar (al abrir, al volver a la app, al recuperar conexión, 2 s después de cada cambio), estado visible y conexión/desconexión.
+- `db.ts`: `alCambiar()` avisa de cada cambio; los ajustes `sync.*` y `copia.*` son solo del dispositivo (`esAjusteLocal`).
+- Pruebas: dos "dispositivos" simulados con un GitHub en memoria (`motor.test.ts`) y en navegador (`tests/sincronizacion.spec.ts`).

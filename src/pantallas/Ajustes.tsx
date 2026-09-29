@@ -1,6 +1,7 @@
 import { ChevronRight, GraduationCap, Monitor, Moon, Sun } from 'lucide-react'
 import { Link } from 'react-router'
 import { SeccionDatos } from '../componentes/ajustes/SeccionDatos'
+import { SeccionSincronizacion } from '../componentes/ajustes/SeccionSincronizacion'
 import { Cabecera } from '../componentes/Cabecera'
 import { useTema } from '../hooks/useTema'
 import type { Tema } from '../logica/tema'
@@ -53,7 +54,8 @@ export default function Ajustes() {
         <ChevronRight className="size-5 text-texto-suave" />
       </Link>
 
-      <div className="mt-4">
+      <div className="mt-4 grid grid-cols-1 gap-4">
+        <SeccionSincronizacion />
         <SeccionDatos />
       </div>
 

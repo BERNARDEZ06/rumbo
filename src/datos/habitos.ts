@@ -5,7 +5,7 @@ import type { Habito } from './modelos'
 
 export type DatosHabito = Pick<Habito, 'nombre' | 'emoji' | 'color' | 'tipo' | 'meta' | 'periodo'>
 
-export async function crearHabito(datos: DatosHabito, hoy: Dia, base: BaseDeDatos = db): Promise<Habito> {
+export async function crearHabito(datos: DatosHabito & { id?: string }, hoy: Dia, base: BaseDeDatos = db): Promise<Habito> {
   const ultimo = await base.habitos.orderBy('orden').last()
   return guardar('habitos', { ...datos, orden: (ultimo?.orden ?? -1) + 1, archivado: false, creado: hoy }, base)
 }

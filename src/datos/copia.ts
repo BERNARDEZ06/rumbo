@@ -1,4 +1,4 @@
-import { db, guardarAjuste, leerAjuste, type BaseDeDatos } from './db'
+import { db, esAjusteLocal, guardarAjuste, leerAjuste, type BaseDeDatos } from './db'
 
 /** Todas las tablas que entran en la copia de seguridad. */
 const TABLAS_COPIA = [
@@ -31,8 +31,8 @@ export const CLAVE_ULTIMA_COPIA = 'copia.ultima'
 export async function crearCopia(base: BaseDeDatos = db, ahora = new Date()): Promise<Copia> {
   const tablas = {} as Record<TablaCopia, unknown[]>
   for (const t of TABLAS_COPIA) tablas[t] = await base.table(t).toArray()
-  // La fecha de la última copia no se guarda dentro de la propia copia.
-  tablas.ajustes = (tablas.ajustes as { clave: string }[]).filter((a) => a.clave !== CLAVE_ULTIMA_COPIA)
+  // Los ajustes propios de este dispositivo (fecha de la última copia, clave de GitHub…) no van en la copia.
+  tablas.ajustes = (tablas.ajustes as { clave: string }[]).filter((a) => !esAjusteLocal(a.clave))
   return { app: 'rumbo', version: 1, fecha: ahora.toISOString(), tablas }
 }
 
@@ -68,11 +68,14 @@ export function resumenCopia(c: Copia) {
 export async function restaurarCopia(c: Copia, base: BaseDeDatos = db): Promise<void> {
   const tablas = TABLAS_COPIA.map((t) => base.table(t))
   await base.transaction('rw', tablas, async () => {
+    // Se conservan los ajustes propios de este dispositivo (p. ej. la conexión con GitHub).
+    const locales = (await base.ajustes.toArray()).filter((a) => esAjusteLocal(a.clave))
     for (const t of TABLAS_COPIA) {
       await base.table(t).clear()
-      const filas = c.tablas[t] ?? []
+      const filas = t === 'ajustes' ? (c.tablas.ajustes as { clave: string }[]).filter((a) => !esAjusteLocal(a.clave)) : (c.tablas[t] ?? [])
       if (filas.length) await base.table(t).bulkPut(filas)
     }
+    if (locales.length) await base.ajustes.bulkPut(locales)
   })
 }
 

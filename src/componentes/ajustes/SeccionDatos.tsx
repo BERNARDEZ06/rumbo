@@ -95,7 +95,7 @@ export function SeccionDatos() {
     <section className="rounded-3xl border border-borde bg-superficie p-5" aria-label="Tus datos">
       <h2 className="font-semibold">Tus datos</h2>
       <p className="mt-1 text-sm text-texto-suave">
-        Todo se guarda solo en este dispositivo. Haz una copia de vez en cuando por si cambias de móvil o se borra el navegador.
+        Tus datos se guardan en este dispositivo (y en tu GitHub si activas la sincronización). Una copia de vez en cuando nunca está de más.
       </p>
 
       <div className="mt-4 grid grid-cols-1 gap-2">

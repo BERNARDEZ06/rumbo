@@ -120,6 +120,8 @@ export interface Evento extends Base {
 export interface Ajuste {
   clave: string
   valor: unknown
+  /** Momento del último cambio (para sincronizar). */
+  actualizado?: number
 }
 
 /** Registro de lo borrado, para que la futura sincronización sepa qué eliminar en el otro dispositivo. */

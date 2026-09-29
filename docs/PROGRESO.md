@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1 terminada** (a falta de que el usuario la pruebe en su iPhone). **App publicada en https://bernardez06.github.io/rumbo/**. Siguiente: **Fase 2, empezando por la sincronización entre móvil y ordenador** (acordado con el usuario).
+**Fase 1 terminada. Fase 2 en curso.** App publicada en https://bernardez06.github.io/rumbo/. Sincronización entre dispositivos programada y probada; falta que el usuario cree el repositorio privado `rumbo-datos` y la clave, y la active en sus dispositivos.
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -25,6 +25,7 @@ _Última actualización: 2026-09-28_
 - ✅ Tarea 9 (parte 1): icono (brújula), ficha de la app (manifest), iconos para iPhone, "service worker" (funciona sin conexión y se actualiza sola), publicación automática con GitHub Actions (pasa las pruebas antes de publicar) y prueba que simula GitHub Pages y quita la conexión.
 - ✅ Tarea 9 (parte 2): código subido a https://github.com/BERNARDEZ06/rumbo (rama main) y publicado con GitHub Actions en https://bernardez06.github.io/rumbo/. Comprobado: carga, ficha de la app, icono de iPhone y service worker activo.
 - ✅ Tarea 10: revisión final. Añadida revisión automática de accesibilidad (axe) en todas las pantallas, claro/oscuro, móvil/ordenador. Corregido: contraste del gris secundario (#566174), días de otros meses en el calendario, estructura del calendario para lectores de pantalla, contraste de etiquetas de tipo y de las etiquetas del calendario, y nombres de asignatura cortados en Tareas (en móvil la fecha cercana se muestra como "En 3 días").
+- ✅ Fase 2 · Sincronización: datos en un archivo (`rumbo-datos.json`) de un repositorio **privado** del usuario (`BERNARDEZ06/rumbo-datos`), con una clave de GitHub limitada a ese repositorio. Fusión registro a registro (gana el cambio más reciente; los borrados se propagan), reintento si dos dispositivos guardan a la vez, sincroniza al abrir, al volver a la app, al recuperar conexión y 2 s después de cada cambio. Primera conexión de un dispositivo: "Usar los de GitHub" o "Juntar los dos". Datos iniciales con identificadores fijos (no se duplican). La clave nunca se sube ni va en las copias.
 
 ## En curso
 - 🔄 Nada.
@@ -45,10 +46,11 @@ _Última actualización: 2026-09-28_
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ✅ |
 
 ## Siguiente: Fase 2
-1. Sincronización entre móvil y ordenador con un archivo privado (Gist) de GitHub. El usuario tendrá que crear una "clave" (token) de GitHub con permiso solo para Gists y pegarla en la app de cada dispositivo.
+1. ✅ Sincronización (hecha; pendiente de activar por el usuario).
 2. Resto de mejoras de la Fase 2 (ver FUNCIONALIDADES.md).
 
 ## Pendiente del usuario
+- Activar la sincronización: crear el repositorio privado `rumbo-datos`, crear la clave (fine-grained, solo ese repositorio, Contents: Read and write) y pegarla en Ajustes en el móvil y en el ordenador.
 - Decidir si quiere la sincronización entre móvil y ordenador ya en la Fase 1 (recomendación: Fase 2).
 - Instalar la app en el iPhone (Safari → Compartir → Añadir a pantalla de inicio) y contar si algo se ve o funciona mal.
 

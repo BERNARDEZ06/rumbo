@@ -54,6 +54,25 @@ export function nuevoId(): string {
   return crypto.randomUUID()
 }
 
+/* ---------- Avisos de cambios (los usa la sincronización) ---------- */
+
+const oyentesCambio = new Set<(base: BaseDeDatos) => void>()
+
+/** Llama a la función cada vez que se guarda, cambia o borra algo (devuelve cómo dejar de escuchar). */
+export function alCambiar(oyente: (base: BaseDeDatos) => void): () => void {
+  oyentesCambio.add(oyente)
+  return () => oyentesCambio.delete(oyente)
+}
+
+function avisarCambio(base: BaseDeDatos) {
+  oyentesCambio.forEach((oyente) => oyente(base))
+}
+
+/** Ajustes que son solo de este dispositivo: no se sincronizan ni van en las copias de seguridad. */
+export function esAjusteLocal(clave: string): boolean {
+  return clave.startsWith('sync.') || clave.startsWith('copia.')
+}
+
 type SinBase<T> = Omit<T, 'id' | 'actualizado'> & { id?: string }
 
 /** Crea o actualiza un registro, poniendo su id (si es nuevo) y la hora del cambio. */
@@ -64,6 +83,7 @@ export async function guardar<N extends NombreTabla>(
 ): Promise<TiposPorTabla[N]> {
   const registro = { ...datos, id: datos.id ?? nuevoId(), actualizado: Date.now() } as TiposPorTabla[N]
   await (base.table(tabla) as Dexie.Table<TiposPorTabla[N], string>).put(registro)
+  avisarCambio(base)
   return registro
 }
 
@@ -75,14 +95,16 @@ export async function modificar<N extends NombreTabla>(
   base: BaseDeDatos = db,
 ): Promise<void> {
   await base.table(tabla).update(id, { ...cambios, actualizado: Date.now() })
+  avisarCambio(base)
 }
 
-/** Borra un registro y deja constancia de ello (para la futura sincronización). */
+/** Borra un registro y deja constancia de ello (para que la sincronización lo borre también en otros dispositivos). */
 export async function borrar(tabla: NombreTabla, id: string, base: BaseDeDatos = db): Promise<void> {
   await base.transaction('rw', base.table(tabla), base.borrados, async () => {
     await base.table(tabla).delete(id)
     await base.borrados.put({ id: `${tabla}|${id}`, tabla, registroId: id, cuando: Date.now() })
   })
+  avisarCambio(base)
 }
 
 export async function leerAjuste<T>(clave: string, porDefecto: T, base: BaseDeDatos = db): Promise<T> {
@@ -91,5 +113,10 @@ export async function leerAjuste<T>(clave: string, porDefecto: T, base: BaseDeDa
 }
 
 export async function guardarAjuste(clave: string, valor: unknown, base: BaseDeDatos = db): Promise<void> {
-  await base.ajustes.put({ clave, valor })
+  await base.ajustes.put({ clave, valor, actualizado: Date.now() })
+  if (!esAjusteLocal(clave)) avisarCambio(base)
+}
+
+export async function borrarAjuste(clave: string, base: BaseDeDatos = db): Promise<void> {
+  await base.ajustes.delete(clave)
 }
