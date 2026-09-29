@@ -55,8 +55,8 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Pedir al navegador que no borre los datos (almacenamiento persistente).
 
 ### App instalable
-- ⬜ Instalable en el iPhone ("Añadir a pantalla de inicio"), con icono y funcionamiento sin conexión.
-- ⬜ Publicada gratis en una dirección web.
+- ✅ Instalable en el iPhone ("Añadir a pantalla de inicio"), con icono y funcionamiento sin conexión.
+- ✅ Publicada gratis en una dirección web. https://bernardez06.github.io/rumbo/
 
 ## Fase 2: mejoras
 - ⬜ **Sincronización entre móvil y ordenador**, gratis, usando un archivo privado en la cuenta de GitHub del usuario. Lo que se apunta en un dispositivo aparece en el otro.

@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 8 terminadas; tarea 9 en curso: la app ya es instalable y funciona sin conexión; falta que el usuario cree el repositorio en GitHub para subirla y publicarla.
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 9 terminadas. **App publicada en https://bernardez06.github.io/rumbo/**. Siguiente: tarea 10 (revisión final de la Fase 1, incluida la prueba del usuario en su iPhone).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -23,9 +23,10 @@ _Última actualización: 2026-09-28_
 - ✅ Tarea 7: pantalla Hoy con saludo y fecha, cuenta atrás de los 3 próximos exámenes (en rojo si faltan 3 días o menos), tareas para hoy (incluidas las atrasadas; las hechas quedan tachadas con contador "x/y hechas"), clases con asistencia ("x por delante"), festivo o "hoy no tienes clase", eventos del día y hábitos en versión compacta con su progreso semanal.
 - ✅ Tarea 8: Ajustes → "Tus datos": descargar copia de seguridad (archivo .json; en el móvil se abre "Compartir" para guardarla en Archivos/iCloud), recuperar una copia (con resumen y confirmación; sustituye todo o nada), aviso si nunca se ha hecho copia o hace 14 días o más, estado de protección de los datos y botón "Pedir protección". La app pide almacenamiento persistente al arrancar. Se muestra la versión.
 - ✅ Tarea 9 (parte 1): icono (brújula), ficha de la app (manifest), iconos para iPhone, "service worker" (funciona sin conexión y se actualiza sola), publicación automática con GitHub Actions (pasa las pruebas antes de publicar) y prueba que simula GitHub Pages y quita la conexión.
+- ✅ Tarea 9 (parte 2): código subido a https://github.com/BERNARDEZ06/rumbo (rama main) y publicado con GitHub Actions en https://bernardez06.github.io/rumbo/. Comprobado: carga, ficha de la app, icono de iPhone y service worker activo.
 
 ## En curso
-- 🔄 Tarea 9: subir el código a https://github.com/BERNARDEZ06/rumbo y publicar en https://bernardez06.github.io/rumbo/.
+- 🔄 Nada.
 
 ## Plan de la Fase 1 (tareas pequeñas, una por commit)
 | # | Tarea | Estado |
@@ -39,14 +40,15 @@ _Última actualización: 2026-09-28_
 | 6 | Calendario: vista mes y vista semana + eventos puntuales + asistencia a clase | ✅ |
 | 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ✅ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ✅ |
-| 9 | App instalable (PWA) y publicación en GitHub Pages | 🔄 |
+| 9 | App instalable (PWA) y publicación en GitHub Pages | ✅ |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
 - Decidir si quiere la sincronización entre móvil y ordenador ya en la Fase 1 (recomendación: Fase 2).
-- Tarea 9: crear el repositorio público vacío `rumbo` en GitHub (usuario BERNARDEZ06), activar Pages con origen "GitHub Actions" e iniciar sesión cuando se suba el código.
+- Instalar la app en el iPhone (Safari → Compartir → Añadir a pantalla de inicio) y contar si algo se ve o funciona mal.
 
 ## Notas técnicas para la próxima sesión
+- Publicar: basta con `git push` (rama main); GitHub Actions pasa las pruebas y publica en 1-2 min. Estado: https://github.com/BERNARDEZ06/rumbo/actions (o la API pública `api.github.com/repos/BERNARDEZ06/rumbo/actions/runs`). El inicio de sesión de git ya está guardado (Git Credential Manager).
 - Iconos: se generan con `node scripts/iconos.mjs` a partir de `public/icono.svg`.
 - Versión publicada en local: `npm run build && node scripts/servir-dist.mjs` → http://localhost:4173/rumbo/ (proyecto de pruebas "publicada").
 - Al pasar las pruebas en navegador, NO usar `npx playwright test | tail`: el servidor de pruebas deja la salida abierta y la orden no termina. Redirigir a un archivo: `npx playwright test > /tmp/pw.txt 2>&1; tail /tmp/pw.txt`.
