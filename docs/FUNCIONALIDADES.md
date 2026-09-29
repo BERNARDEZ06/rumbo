@@ -5,10 +5,10 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 ## Fase 1: lo mínimo útil ✅ (terminada el 29 sep 2026)
 
 ### Estructura y diseño
-- ⬜ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
+- ✅ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.
 - ✅ Botón "+" siempre visible para añadir rápido una tarea, un examen o un repaso.
-- ⬜ Modo claro, modo oscuro y opción "automático" (según el sistema).
-- ⬜ Todo en español, con la semana de lunes a domingo.
+- ✅ Modo claro, modo oscuro y opción "automático" (según el sistema).
+- ✅ Todo en español, con la semana de lunes a domingo.
 
 ### Hábitos
 - ✅ Crear, editar, archivar y borrar hábitos, con nombre, icono o emoji y color.
