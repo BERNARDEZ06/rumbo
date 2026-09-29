@@ -44,3 +44,7 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 38 | 2026-09-29 | **Recuperar una copia sustituye todos los datos** (no mezcla) | Es lo más predecible para el usuario; se enseña un resumen y se pide confirmación antes. Se hace "todo o nada": si falla, no se toca nada. |
 | 39 | 2026-09-29 | **En el móvil, la copia se entrega con "Compartir"** | En el iPhone, una app instalada no descarga archivos de forma fiable; "Compartir → Guardar en Archivos" sí funciona y permite guardarla en iCloud. |
 | 40 | 2026-09-29 | **Aviso de copia a los 14 días** | Suficiente para no perder mucho si pasa algo, sin ser pesado. |
+| 41 | 2026-09-29 | **Icono: brújula blanca sobre índigo** | "Rumbo" = saber hacia dónde vas; mismo color que la app. Se genera desde un SVG, así se puede cambiar fácilmente. |
+| 42 | 2026-09-29 | **La app se actualiza sola** (service worker en modo automático) | Sin avisos ni botones: al abrirla, carga la última versión publicada. |
+| 43 | 2026-09-29 | **GitHub Actions publica solo si pasan las pruebas de lógica** | Evita publicar una versión rota. Las pruebas en navegador se pasan en local antes de cada commit. |
+| 44 | 2026-09-29 | **Repositorio `BERNARDEZ06/rumbo`, público** | GitHub Pages es gratis con repositorios públicos. El código es visible; los datos del usuario no (están solo en su dispositivo). |

@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 8 terminadas; siguiente: tarea 9 (app instalable y publicación en GitHub Pages; necesita la cuenta de GitHub del usuario).
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 8 terminadas; tarea 9 en curso: la app ya es instalable y funciona sin conexión; falta que el usuario cree el repositorio en GitHub para subirla y publicarla.
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -22,9 +22,10 @@ _Última actualización: 2026-09-28_
 - ✅ Las prácticas de Estadística se muestran como "Práctica" (sin grupo), a petición del usuario.
 - ✅ Tarea 7: pantalla Hoy con saludo y fecha, cuenta atrás de los 3 próximos exámenes (en rojo si faltan 3 días o menos), tareas para hoy (incluidas las atrasadas; las hechas quedan tachadas con contador "x/y hechas"), clases con asistencia ("x por delante"), festivo o "hoy no tienes clase", eventos del día y hábitos en versión compacta con su progreso semanal.
 - ✅ Tarea 8: Ajustes → "Tus datos": descargar copia de seguridad (archivo .json; en el móvil se abre "Compartir" para guardarla en Archivos/iCloud), recuperar una copia (con resumen y confirmación; sustituye todo o nada), aviso si nunca se ha hecho copia o hace 14 días o más, estado de protección de los datos y botón "Pedir protección". La app pide almacenamiento persistente al arrancar. Se muestra la versión.
+- ✅ Tarea 9 (parte 1): icono (brújula), ficha de la app (manifest), iconos para iPhone, "service worker" (funciona sin conexión y se actualiza sola), publicación automática con GitHub Actions (pasa las pruebas antes de publicar) y prueba que simula GitHub Pages y quita la conexión.
 
 ## En curso
-- 🔄 Nada.
+- 🔄 Tarea 9: subir el código a https://github.com/BERNARDEZ06/rumbo y publicar en https://bernardez06.github.io/rumbo/.
 
 ## Plan de la Fase 1 (tareas pequeñas, una por commit)
 | # | Tarea | Estado |
@@ -38,14 +39,16 @@ _Última actualización: 2026-09-28_
 | 6 | Calendario: vista mes y vista semana + eventos puntuales + asistencia a clase | ✅ |
 | 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ✅ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ✅ |
-| 9 | App instalable (PWA) y publicación en GitHub Pages | ⬜ |
+| 9 | App instalable (PWA) y publicación en GitHub Pages | 🔄 |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
 ## Pendiente del usuario
 - Decidir si quiere la sincronización entre móvil y ordenador ya en la Fase 1 (recomendación: Fase 2).
-- (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
+- Tarea 9: crear el repositorio público vacío `rumbo` en GitHub (usuario BERNARDEZ06), activar Pages con origen "GitHub Actions" e iniciar sesión cuando se suba el código.
 
 ## Notas técnicas para la próxima sesión
+- Iconos: se generan con `node scripts/iconos.mjs` a partir de `public/icono.svg`.
+- Versión publicada en local: `npm run build && node scripts/servir-dist.mjs` → http://localhost:4173/rumbo/ (proyecto de pruebas "publicada").
 - Al pasar las pruebas en navegador, NO usar `npx playwright test | tail`: el servidor de pruebas deja la salida abierta y la orden no termina. Redirigir a un archivo: `npx playwright test > /tmp/pw.txt 2>&1; tail /tmp/pw.txt`.
 - Node.js está en `C:\Program Files\nodejs`. En PowerShell puede hacer falta añadirlo al PATH de la sesión: `$env:Path = "C:\Program Files\nodejs;" + $env:Path`.
 - Comandos: `npm run dev` (abrir en local), `npm run comprobar` (tipos + pruebas), `npm run build` (versión final).

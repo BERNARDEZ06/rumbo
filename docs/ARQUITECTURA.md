@@ -67,3 +67,8 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `logica/calendario.ts` y `componentes/calendario/`: vista mes, detalle del día, clase con asistencia (`ClaseItem`), eventos (`FormEvento`) y resumen de asistencia.
 - `hooks/useAhora.ts`: día y hora actuales, refrescados cada 30 s (para "Ahora", "Fui"…).
 - `datos/copia.ts`: crear, validar y restaurar copias de seguridad (formato `{ app: 'rumbo', version: 1, fecha, tablas }`), entregar el archivo y pedir almacenamiento persistente.
+
+## Publicación
+- `vite.config.ts` (plugin PWA): ficha de la app (`manifest.webmanifest`) e iconos; el "service worker" (`sw.js`) guarda la app en el dispositivo.
+- `.github/workflows/publicar.yml`: al subir cambios a `main`, GitHub instala, pasa las pruebas, construye y publica `dist/` en GitHub Pages.
+- Dirección: https://bernardez06.github.io/rumbo/
