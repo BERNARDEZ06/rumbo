@@ -2,7 +2,7 @@
 
 Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 
-## Fase 1: lo mínimo útil
+## Fase 1: lo mínimo útil ✅ (terminada el 29 sep 2026)
 
 ### Estructura y diseño
 - ⬜ Navegación con 5 secciones: **Hoy**, **Calendario**, **Tareas**, **Hábitos** y **Ajustes**. En el móvil se muestra como barra inferior y en el ordenador como menú lateral.

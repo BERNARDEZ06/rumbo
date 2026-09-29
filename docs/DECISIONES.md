@@ -48,3 +48,5 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 42 | 2026-09-29 | **La app se actualiza sola** (service worker en modo automático) | Sin avisos ni botones: al abrirla, carga la última versión publicada. |
 | 43 | 2026-09-29 | **GitHub Actions publica solo si pasan las pruebas de lógica** | Evita publicar una versión rota. Las pruebas en navegador se pasan en local antes de cada commit. |
 | 44 | 2026-09-29 | **Repositorio `BERNARDEZ06/rumbo`, público** | GitHub Pages es gratis con repositorios públicos. El código es visible; los datos del usuario no (están solo en su dispositivo). |
+| 45 | 2026-09-29 | **Revisión automática de accesibilidad (axe) en las pruebas** | Garantiza contraste suficiente y botones con nombre en todas las pantallas; el gris secundario se oscureció a #566174 para cumplirlo. |
+| 46 | 2026-09-29 | **Fase 2 empieza por la sincronización** | Es lo que más le importa al usuario ahora mismo (usar móvil y ordenador a la vez). |

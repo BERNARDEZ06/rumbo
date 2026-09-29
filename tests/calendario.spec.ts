@@ -12,7 +12,7 @@ const detalle = (page: import('@playwright/test').Page) => page.getByRole('regio
 test('la vista mes muestra el examen y el día de hoy con sus clases', async ({ page }) => {
   await page.getByRole('radio', { name: 'Mes' }).click()
   await expect(page.getByRole('heading', { name: 'octubre 2026' })).toBeVisible()
-  await expect(page.getByRole('gridcell', { name: /^5: .*Examen de Macro/ })).toBeVisible()
+  await expect(page.getByRole('group', { name: 'Días del mes' }).getByRole('button', { name: /^5: .*Examen de Macro/ })).toBeVisible()
   await expect(detalle(page).getByText('Hoy, lunes, 5 de octubre')).toBeVisible()
   await expect(detalle(page).getByRole('button', { name: 'Macro: fui. Tocar si no fuiste' })).toBeVisible()
   await expect(detalle(page).getByRole('button', { name: /Bases de Datos: pendiente/ })).toHaveText('Ahora')
@@ -37,7 +37,7 @@ test('avisar de que no iré a una clase futura', async ({ page }) => {
 
 test('un festivo no tiene clases', async ({ page }) => {
   await page.getByRole('radio', { name: 'Mes' }).click()
-  await page.getByRole('gridcell', { name: /^12: festivo/ }).click()
+  await page.getByRole('group', { name: 'Días del mes' }).getByRole('button', { name: /^12: festivo/ }).click()
   await expect(detalle(page).getByText('Festivo · Fiesta Nacional de España')).toBeVisible()
   await expect(detalle(page).getByRole('list', { name: 'Clases' })).toHaveCount(0)
 })
@@ -56,7 +56,7 @@ test('la vista semana muestra de lunes a domingo y se puede avanzar', async ({ p
 
 test('añadir un evento a un día', async ({ page }) => {
   await page.getByRole('radio', { name: 'Mes' }).click()
-  await page.getByRole('gridcell', { name: /^7/ }).first().click()
+  await page.getByRole('group', { name: 'Días del mes' }).getByRole('button', { name: /^7/ }).first().click()
   await detalle(page).getByRole('button', { name: 'Evento' }).click()
   const hoja = page.getByRole('dialog', { name: 'Nuevo evento' })
   await expect(hoja.getByLabel('Fecha')).toHaveValue('2026-10-07')
@@ -64,7 +64,7 @@ test('añadir un evento a un día', async ({ page }) => {
   await hoja.getByLabel('Empieza (opcional)').fill('10:00')
   await hoja.getByRole('button', { name: 'Guardar' }).click()
   await expect(detalle(page).getByText('Médico')).toBeVisible()
-  await expect(page.getByRole('gridcell', { name: /^7: Médico/ })).toBeVisible()
+  await expect(page.getByRole('group', { name: 'Días del mes' }).getByRole('button', { name: /^7: Médico/ })).toBeVisible()
 })
 
 test('resumen de asistencia por asignatura', async ({ page }) => {

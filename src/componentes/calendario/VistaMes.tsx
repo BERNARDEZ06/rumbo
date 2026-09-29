@@ -15,10 +15,10 @@ interface Props {
 }
 
 const PASTILLA: Record<Tarea['tipo'], string> = {
-  examen: 'bg-red-500 text-white',
-  entrega: 'bg-emerald-500 text-white',
-  repaso: 'bg-sky-500/15 text-sky-700 dark:text-sky-300',
-  otra: 'bg-amber-500/15 text-amber-700 dark:text-amber-300',
+  examen: 'bg-red-600 text-white',
+  entrega: 'bg-emerald-700 text-white',
+  repaso: 'bg-sky-500/15 text-sky-800 dark:text-sky-200',
+  otra: 'bg-amber-500/15 text-amber-800 dark:text-amber-200',
 }
 const PUNTO: Record<Tarea['tipo'], string> = {
   examen: 'bg-red-500',
@@ -42,7 +42,7 @@ export function VistaMes({ seleccionado, hoy, tareas, asignaturas, eventos, fest
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-7" role="grid" aria-label="Días del mes">
+      <div className="grid grid-cols-7" role="group" aria-label="Días del mes">
         {semanas.flat().map((dia) => {
           const { festivo, tareas: delDia, eventos: evs } = contenidoDelDia(dia, tareas, eventos, festivos)
           const pendientes = delDia.filter((t) => !t.hecha)
@@ -56,18 +56,17 @@ export function VistaMes({ seleccionado, hoy, tareas, asignaturas, eventos, fest
             <button
               key={dia}
               type="button"
-              role="gridcell"
-              aria-selected={elegido}
+              aria-pressed={elegido}
               aria-label={`${numero}${etiquetas.length ? `: ${etiquetas.join(', ')}` : ''}`}
               onClick={() => onElegir(dia)}
               className={`relative flex min-h-16 flex-col items-stretch gap-0.5 border-r border-b border-borde p-1 text-left transition last:border-r-0 md:min-h-24 md:p-1.5 [&:nth-child(7n)]:border-r-0 ${
                 festivo ? 'bg-violet-500/8' : ''
-              } ${elegido ? 'bg-acento-suave' : 'hover:bg-superficie-2'} ${fuera ? 'opacity-40' : ''}`}
+              } ${elegido ? 'bg-acento-suave' : 'hover:bg-superficie-2'}`}
             >
               <span className="flex items-center justify-between">
                 <span
                   className={`grid size-6 place-items-center rounded-full text-xs font-semibold tabular-nums md:text-sm ${
-                    esHoy ? 'bg-acento text-acento-texto' : festivo ? 'text-violet-600 dark:text-violet-300' : ''
+                    esHoy ? 'bg-acento text-acento-texto' : fuera ? 'text-texto-suave' : festivo ? 'text-violet-600 dark:text-violet-300' : ''
                   }`}
                 >
                   {numero}
@@ -76,7 +75,7 @@ export function VistaMes({ seleccionado, hoy, tareas, asignaturas, eventos, fest
               </span>
 
               {/* Móvil: puntos de colores */}
-              <span className="flex flex-wrap gap-0.5 px-0.5 md:hidden">
+              <span className={`flex flex-wrap gap-0.5 px-0.5 md:hidden ${fuera ? 'opacity-50' : ''}`}>
                 {pendientes.slice(0, 4).map((t) => (
                   <span key={t.id} className={`size-1.5 rounded-full ${PUNTO[t.tipo]}`} />
                 ))}
@@ -86,7 +85,7 @@ export function VistaMes({ seleccionado, hoy, tareas, asignaturas, eventos, fest
               </span>
 
               {/* Ordenador: etiquetas como en un calendario */}
-              <span className="hidden flex-col gap-0.5 md:flex">
+              <span className={`hidden flex-col gap-0.5 md:flex ${fuera ? 'opacity-50' : ''}`}>
                 {festivo && <span className="truncate rounded px-1 text-[11px] font-medium text-violet-700 dark:text-violet-300">Festivo</span>}
                 {pendientes.slice(0, 2).map((t) => (
                   <span key={t.id} className={`truncate rounded px-1 py-px text-[11px] font-medium ${PASTILLA[t.tipo]}`}>

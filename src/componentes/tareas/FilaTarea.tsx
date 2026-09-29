@@ -21,12 +21,13 @@ export function FilaTarea({ tarea, asignatura, hoy }: Props) {
   const hecha = tarea.hecha === 1
   const u = urgencia(tarea, hoy)
 
+  // Cuándo: si está cerca, "En 3 días" (y en pantallas anchas también la fecha); si no, la fecha.
   let cuando: string | null = null
+  let fechaExtra: string | null = null
   if (tarea.fecha) {
-    const relativo = textoRelativo(hoy, tarea.fecha)
     const cerca = Math.abs(diasEntre(hoy, tarea.fecha)) <= 7
-    cuando = cerca ? `${relativo} · ${textoFechaCorta(tarea.fecha)}` : textoFechaCorta(tarea.fecha)
-    if (tarea.hora) cuando += ` · ${tarea.hora}`
+    cuando = cerca ? textoRelativo(hoy, tarea.fecha) : textoFechaCorta(tarea.fecha)
+    if (cerca) fechaExtra = textoFechaCorta(tarea.fecha)
   }
 
   return (
@@ -57,6 +58,8 @@ export function FilaTarea({ tarea, asignatura, hoy }: Props) {
             {cuando && (
               <span className={`shrink-0 ${!hecha && u === 'atrasada' ? 'font-medium text-red-600 dark:text-red-400' : ''} ${!hecha && u === 'hoy' ? 'font-medium text-texto' : ''}`}>
                 {cuando}
+                {fechaExtra && <span className="hidden font-normal text-texto-suave sm:inline"> · {fechaExtra}</span>}
+                {tarea.hora && ` · ${tarea.hora}`}
               </span>
             )}
           </span>

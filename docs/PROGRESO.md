@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 9 terminadas. **App publicada en https://bernardez06.github.io/rumbo/**. Siguiente: tarea 10 (revisión final de la Fase 1, incluida la prueba del usuario en su iPhone).
+**Fase 1 terminada** (a falta de que el usuario la pruebe en su iPhone). **App publicada en https://bernardez06.github.io/rumbo/**. Siguiente: **Fase 2, empezando por la sincronización entre móvil y ordenador** (acordado con el usuario).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -24,6 +24,7 @@ _Última actualización: 2026-09-28_
 - ✅ Tarea 8: Ajustes → "Tus datos": descargar copia de seguridad (archivo .json; en el móvil se abre "Compartir" para guardarla en Archivos/iCloud), recuperar una copia (con resumen y confirmación; sustituye todo o nada), aviso si nunca se ha hecho copia o hace 14 días o más, estado de protección de los datos y botón "Pedir protección". La app pide almacenamiento persistente al arrancar. Se muestra la versión.
 - ✅ Tarea 9 (parte 1): icono (brújula), ficha de la app (manifest), iconos para iPhone, "service worker" (funciona sin conexión y se actualiza sola), publicación automática con GitHub Actions (pasa las pruebas antes de publicar) y prueba que simula GitHub Pages y quita la conexión.
 - ✅ Tarea 9 (parte 2): código subido a https://github.com/BERNARDEZ06/rumbo (rama main) y publicado con GitHub Actions en https://bernardez06.github.io/rumbo/. Comprobado: carga, ficha de la app, icono de iPhone y service worker activo.
+- ✅ Tarea 10: revisión final. Añadida revisión automática de accesibilidad (axe) en todas las pantallas, claro/oscuro, móvil/ordenador. Corregido: contraste del gris secundario (#566174), días de otros meses en el calendario, estructura del calendario para lectores de pantalla, contraste de etiquetas de tipo y de las etiquetas del calendario, y nombres de asignatura cortados en Tareas (en móvil la fecha cercana se muestra como "En 3 días").
 
 ## En curso
 - 🔄 Nada.
@@ -41,7 +42,11 @@ _Última actualización: 2026-09-28_
 | 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ✅ |
 | 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ✅ |
 | 9 | App instalable (PWA) y publicación en GitHub Pages | ✅ |
-| 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
+| 10 | Revisión final de la Fase 1 en móvil y ordenador | ✅ |
+
+## Siguiente: Fase 2
+1. Sincronización entre móvil y ordenador con un archivo privado (Gist) de GitHub. El usuario tendrá que crear una "clave" (token) de GitHub con permiso solo para Gists y pegarla en la app de cada dispositivo.
+2. Resto de mejoras de la Fase 2 (ver FUNCIONALIDADES.md).
 
 ## Pendiente del usuario
 - Decidir si quiere la sincronización entre móvil y ordenador ya en la Fase 1 (recomendación: Fase 2).
