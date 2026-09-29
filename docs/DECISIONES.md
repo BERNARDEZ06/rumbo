@@ -41,3 +41,6 @@ Cada decisión se explica en una o dos frases. Las más recientes van al final.
 | 35 | 2026-09-29 | **Listas con `grid-cols-1`** | Evita que un texto largo ensanche la pantalla en el móvil (en iPhone haría que la página se viera "alejada"). |
 | 36 | 2026-09-29 | **Orden de Hoy: exámenes → tareas → clases → eventos → hábitos** | Lo que más urge arriba; las clases tienen hora fija y los hábitos son lo más flexible. |
 | 37 | 2026-09-29 | **Las tareas de hoy hechas siguen visibles (tachadas)** | Ver "1/2 hechas" motiva más que ver cómo desaparecen. Las atrasadas solo salen si siguen pendientes. |
+| 38 | 2026-09-29 | **Recuperar una copia sustituye todos los datos** (no mezcla) | Es lo más predecible para el usuario; se enseña un resumen y se pide confirmación antes. Se hace "todo o nada": si falla, no se toca nada. |
+| 39 | 2026-09-29 | **En el móvil, la copia se entrega con "Compartir"** | En el iPhone, una app instalada no descarga archivos de forma fiable; "Compartir → Guardar en Archivos" sí funciona y permite guardarla en iCloud. |
+| 40 | 2026-09-29 | **Aviso de copia a los 14 días** | Suficiente para no perder mucho si pasa algo, sin ser pesado. |

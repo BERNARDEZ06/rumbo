@@ -66,3 +66,4 @@ Las fechas se guardan como texto `AAAA-MM-DD` (ej. `2026-09-28`), para evitar l�
 - `componentes/tareas/`: formulario (`FormTarea`, se abre desde cualquier sitio con `useAcciones().abrirTarea`) y fila de tarea reutilizable (`FilaTarea`).
 - `logica/calendario.ts` y `componentes/calendario/`: vista mes, detalle del día, clase con asistencia (`ClaseItem`), eventos (`FormEvento`) y resumen de asistencia.
 - `hooks/useAhora.ts`: día y hora actuales, refrescados cada 30 s (para "Ahora", "Fui"…).
+- `datos/copia.ts`: crear, validar y restaurar copias de seguridad (formato `{ app: 'rumbo', version: 1, fecha, tablas }`), entregar el archivo y pedir almacenamiento persistente.

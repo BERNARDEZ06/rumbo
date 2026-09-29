@@ -3,7 +3,7 @@
 _Última actualización: 2026-09-28_
 
 ## Estado actual
-**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 7 terminadas; siguiente: tarea 8 (Ajustes: copia de seguridad y almacenamiento persistente).
+**Fase 1: en construcción.** Plan aprobado por el usuario. Tareas 0 a 8 terminadas; siguiente: tarea 9 (app instalable y publicación en GitHub Pages; necesita la cuenta de GitHub del usuario).
 
 ## Hecho
 - ✅ Preguntas iniciales sobre la rutina.
@@ -21,6 +21,7 @@ _Última actualización: 2026-09-28_
 - ✅ Tarea 6: Calendario con vista mes (exámenes en rojo, entregas en verde, festivos en violeta; en ordenador, etiquetas con la asignatura) y vista semana (lunes a domingo con clases, tareas y eventos); detalle del día; eventos puntuales (también desde el "+"); asistencia en cada clase ("Fui" por defecto al terminar, "No fui" / "No iré" con un toque) y resumen de asistencia por asignatura (en rojo si baja del 80 %). Corregido un desbordamiento horizontal en móvil con nombres de clase largos.
 - ✅ Las prácticas de Estadística se muestran como "Práctica" (sin grupo), a petición del usuario.
 - ✅ Tarea 7: pantalla Hoy con saludo y fecha, cuenta atrás de los 3 próximos exámenes (en rojo si faltan 3 días o menos), tareas para hoy (incluidas las atrasadas; las hechas quedan tachadas con contador "x/y hechas"), clases con asistencia ("x por delante"), festivo o "hoy no tienes clase", eventos del día y hábitos en versión compacta con su progreso semanal.
+- ✅ Tarea 8: Ajustes → "Tus datos": descargar copia de seguridad (archivo .json; en el móvil se abre "Compartir" para guardarla en Archivos/iCloud), recuperar una copia (con resumen y confirmación; sustituye todo o nada), aviso si nunca se ha hecho copia o hace 14 días o más, estado de protección de los datos y botón "Pedir protección". La app pide almacenamiento persistente al arrancar. Se muestra la versión.
 
 ## En curso
 - 🔄 Nada.
@@ -36,7 +37,7 @@ _Última actualización: 2026-09-28_
 | 5 | Tareas: exámenes, entregas y repasos, con fechas y filtros | ✅ |
 | 6 | Calendario: vista mes y vista semana + eventos puntuales + asistencia a clase | ✅ |
 | 7 | Hoy: pantalla de inicio con todo lo del día (asistencia y cuenta atrás de exámenes) | ✅ |
-| 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ⬜ |
+| 8 | Ajustes: tema, exportar/importar copia y almacenamiento persistente | ✅ |
 | 9 | App instalable (PWA) y publicación en GitHub Pages | ⬜ |
 | 10 | Revisión final de la Fase 1 en móvil y ordenador | ⬜ |
 
@@ -45,6 +46,7 @@ _Última actualización: 2026-09-28_
 - (Para la tarea 9) Crear una cuenta gratuita de GitHub, si no tiene una.
 
 ## Notas técnicas para la próxima sesión
+- Al pasar las pruebas en navegador, NO usar `npx playwright test | tail`: el servidor de pruebas deja la salida abierta y la orden no termina. Redirigir a un archivo: `npx playwright test > /tmp/pw.txt 2>&1; tail /tmp/pw.txt`.
 - Node.js está en `C:\Program Files\nodejs`. En PowerShell puede hacer falta añadirlo al PATH de la sesión: `$env:Path = "C:\Program Files\nodejs;" + $env:Path`.
 - Comandos: `npm run dev` (abrir en local), `npm run comprobar` (tipos + pruebas), `npm run build` (versión final).
 - Vista previa en el navegador integrado: configuración `rumbo` en `.claude/launch.json` (puerto 5173).

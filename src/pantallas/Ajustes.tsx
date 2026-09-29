@@ -1,5 +1,6 @@
 import { ChevronRight, GraduationCap, Monitor, Moon, Sun } from 'lucide-react'
 import { Link } from 'react-router'
+import { SeccionDatos } from '../componentes/ajustes/SeccionDatos'
 import { Cabecera } from '../componentes/Cabecera'
 import { useTema } from '../hooks/useTema'
 import type { Tema } from '../logica/tema'
@@ -51,6 +52,12 @@ export default function Ajustes() {
         </span>
         <ChevronRight className="size-5 text-texto-suave" />
       </Link>
+
+      <div className="mt-4">
+        <SeccionDatos />
+      </div>
+
+      <p className="mt-6 text-center text-xs text-texto-suave">Rumbo · versión {__VERSION__}</p>
     </>
   )
 }

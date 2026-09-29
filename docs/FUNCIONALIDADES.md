@@ -50,9 +50,9 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ✅ Cuenta atrás de los próximos exámenes (ej. "Macro en 7 días").
 
 ### Datos
-- ⬜ Todo se guarda en el dispositivo.
-- ⬜ Exportar copia de seguridad (archivo `.json`) e importarla.
-- ⬜ Pedir al navegador que no borre los datos (almacenamiento persistente).
+- ✅ Todo se guarda en el dispositivo.
+- ✅ Exportar copia de seguridad (archivo `.json`) e importarla.
+- ✅ Pedir al navegador que no borre los datos (almacenamiento persistente).
 
 ### App instalable
 - ⬜ Instalable en el iPhone ("Añadir a pantalla de inicio"), con icono y funcionamiento sin conexión.
@@ -64,7 +64,7 @@ Leyenda: ⬜ pendiente · 🔄 en curso · ✅ hecho
 - ⬜ **Recordatorios en el calendario del iPhone**: exportar los exámenes y las entregas como eventos (archivo `.ics`) con aviso previo. Así avisa el propio iPhone, sin coste.
 - ⬜ Estadísticas de los hábitos: historial de las últimas semanas y porcentaje de cumplimiento.
 - ⬜ Planificar el estudio: repartir las 2 h diarias entre asignaturas.
-- ⬜ Aviso para hacer copia de seguridad si hace tiempo que no se hace.
+- ✅ Aviso para hacer copia de seguridad si hace tiempo que no se hace (adelantado a la Fase 1: aviso en Ajustes a partir de 14 días).
 
 ## Fase 3: extras (opcionales)
 - ⬜ Notificaciones reales en el iPhone (ej. "a las 22:00 te falta el gimnasio"), si se consigue una forma 100 % gratuita y fiable. Ver `DECISIONES.md`.
